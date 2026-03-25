@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="nuevoSega">
+<head>
+  <title>SEGA</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/application-ece7ac12c107ffb6f34f277e0388426526a1129a59d002da078f1805f904106d.css" />
+  <script src="https://sega.uach.mx/assets/application-d0e9eb48f7d65f7e30d4f553d2d72995e43aeb042df8f076105533eb9f0e86fe.js"></script>
+  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/dhtmlxscheduler-b508c591fd4f9916cbcf34ad1e1add4db5d1b7196562d5e04d4659c8113fc643.css" data-turbolinks-track="true" />
+  <script src="https://sega.uach.mx/assets/dhtmlxscheduler-dce4cf0db9c1f25cd8f3635b7ba1c0ee19e10e85a749bdbc3a78ba197a761f66.js" data-turbolinks-track="true"></script>
+
+  <meta name="csrf-param" content="authenticity_token" />
+  <meta name="csrf-token" content="/FK9LZgYqJIgDlLgkKi/8kt2j5SE+Hao015PYCPOgrt59SSzL0J2oV6k0+Jy2iIc9NGqBAGsAXp1UJ+wFChl0w==" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://sega.uach.mx/assets/favicon-c16bfa3110b0ecbe5c7e9d6e254ddcaa0f3f1898005f0ac17ab90c1aa40f5472.png" />
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+  <script src="https://unpkg.com/popper.js@1"></script>
+  <script src="https://unpkg.com/tippy.js@5"></script>
+
+</head>
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo" ng-controller="layoutController">
+
+<div id="Loader">
+  <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" class="img-responsive"/>
+</div>
+<div id="LoaderAllPages">
+  <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" class="img-responsive"/>
+</div>
+
+<div class="page-header navbar navbar-fixed-top">
+  <div class="page-header-inner">
+    <div class="page-logo">
+      <a href="/"><img class="logo-default" src="https://sega.uach.mx/assets/logo-uach-0dd6a98220ea3bdd801c171fa0685d37288eff4ab858a0917f7110474ffdd7d3.svg" /></a>
+      <div class="menu-toggler sidebar-toggler"></div>
+    </div>
+    <a aria-controls="sidebar" aria-expanded="false" class="menu-toggler responsive-toggler hidden-xs hidden-sm" data-target="#sidebar" data-toggle="collapse" href="javascript:;"></a>
+
+    <div class="page-actions">
+      <div class="btn-group">
+          <button type="button" class="btn purple-plum btn-sm botonHeaderPrimario" onclick="location.href='/programas_educativos'">
+            <i class="fas fa-angle-double-down"></i>
+            <span id="programaTopBar">PROGRAMA: LICENCIATURA EN ESTOMATOLOGIA </span>
+          </button>
+      </div>
+    </div>
+    <div class="page-top" id="topWeb">
+      <div class="top-menu">
+        <ul class="nav navbar-nav pull-right">
+          <li class="dropdown dropdown-user dropdown-dark">
+            <a class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-toggle="dropdown" href="javascript:;">
+              <span class="username">
+                RODRIGUEZ GERMAN OSCAR YRAM
+              </span>
+              <span class="fa fa-chevron-down">
+              </span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-default">
+              <li>
+                <img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg" />
+                <a href="http://soporte.uach.mx" target="_blank"><i class="fa fa-question"></i> Soporte UACH</a>
+                <a ng-click="translatePage('en')" ng-hide="currentLanguage === 'en'"><i class="fa fa-globe"></i>Traducir</a>
+                <a ng-click="translatePage('es')" ng-show="currentLanguage === 'en'"><i class="fa fa-globe"></i>Traducir</a>
+              </li>
+              <li id="logout"><a data-method="get" href="/usuarios/sign_out">
+                  <i class="fa fa-times" aria-hidden="true"></i> Salir
+                </a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-top" id="topMovil">
+    <ul class="nav navbar-nav pull-right">
+      <li class="dropdown dropdown-user dropdown-dark" style="z-index: 9999;">
+        <a class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-toggle="dropdown" href="javascript:;"><span class="username">RODRIGUEZ GERMAN OSCAR YRAM</span> 
+        </a>
+      </li>
+    </ul>
+    <div class="content">
+      <nav>
+        <input type="checkbox" id="hamburger1"/>
+        <label for="hamburger1"></label>
+          <ul class="nav-links" data-auto-scroll="true" data-keep-expanded="true" data-slide-speed="100">
+            <li class="nav-item start active">
+              <a class="nav-link nav-toggle" href="index.html"><i class="icon-home" aria-hidden="true"></i>
+                <span class="title">Inicio</span>
+                <span class="arrow"></span>
+              </a>
+            </li>
+            <li class="nav-item start">
+              <a class="nav-link active nav-toggle" href="javascript:;"><i class="fa fa-bookmark" aria-hidden="true"></i>
+                <span class="title">Consultas</span> <span class="selected"></span> <span class="arrow"></span></a>
+              <ul class="sub-menu" style="display: none;">
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/programas_educativos"><i class="fas fa-id-badge"></i>
+                    <span class="title">Programas Educativos</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/kardex/index"><i class="fas fa-book-reader"></i>
+                    <span class="title">Kardex</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/horario/index"><i class="fas fa-clock"></i>
+                    <span class="title">Horario</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/calificaciones/index"><i class="fas fa-book-open"></i>
+                    <span class="title">Calificaciones</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/faltas/index"><i class="fa fa-area-chart"></i>
+                    <span class="title">Faltas</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/horario_de_evaluaciones/index"><i class="fas fa-comments"></i>
+                    <span class="title">Horario de evaluaciones</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/materias_por_cursar/index"><i class="fas fa-road"></i>
+                    <span class="title">Materias por cursar</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/boleta/index"><i class="fas fa-file"></i>
+                    <span class="title">Boleta</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/papeleria_oficial/documentacion"><i class="fas fa-file-invoice"></i>
+                    <span class="title">Documentación</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item start">
+              <a class="nav-link nav-toggle" href="javascript:;"><i aria-hidden="true" class="fa fa-address-card"></i>
+                <span class="title">Inscripciones</span> <span class="selected"></span> <span class="arrow"></span></a>
+              <ul class="sub-menu" style="display: none;">
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/inscripciones/consulta_horario_inscripcion"><i class="fas fa-calendar-alt"></i>
+                    <span class="title">Horario de inscripción</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/inscripciones/preinscripcion/index"><i class="fa fa-cube"></i>
+                    <span class="title">Preinscripción/Inscripción</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/inscripciones/demanda_de_materias"><i class="fa fa-plus-square"></i>
+                    <span class="title">Demanda de materias</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/altas_bajas"><i class="fa fa-bar-chart"></i>
+                    <span class="title">Altas-Bajas de Materias</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/baja_alumno"><i class="fa fa-user-minus"></i>
+                    <span class="title">Baja Temporal</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/doble_titulacion"><i class="fa fa-graduation-cap"></i>
+                    <span class="title">Doble Titulación</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/programas_especiales"><i class="fa fa-book-open"></i>
+                    <span class="title">Cursos Especiales</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item start active">
+              <a class="nav-link nav-toggle" href="https://pagosalumnos.uach.mx/" target="_blank"><i aria-hidden="true" class="fa fa-credit-card"></i>
+                <span class="title">Pagos Alumnos</span> <span class="selected"></span> <span class="arrow"></span></a>
+            </li>
+
+            <li class="nav-item start active">
+              <a class="nav-link nav-toggle" href="/papeleria_oficial/impresion"><i class="fa fa-file-alt"></i>
+                <span class="title"> Papelería oficial (Emisión constancias)</span>
+                <span class="arrow"></span>
+              </a>
+            </li>
+
+            <li class="nav-item start">
+              <a class="nav-link nav-toggle" href="javascript:;"><i aria-hidden="true" class="fa fa-graduation-cap"></i>
+                <span class="title">Titulaciones</span> <span class="selected"></span> <span class="arrow"></span></a>
+              <ul class="sub-menu" style="display: none;">
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/titulacion/solicitud"><i class="fa fa-file-alt"></i>
+                    <span class="title">Solicitud Titulación</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/titulacion/seguimiento/index"><i class="fa fa-cube"></i>
+                    <span class="title">Estatus Titulación</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/titulacion/seguimiento/impresion"><i class="fa fa-file-download"></i>
+                    <span class="title">Impresión de Titulo</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item start">
+              <a class="nav-link nav-toggle" href="javascript:;"><i aria-hidden="true" class="fa fa-info-circle"></i>
+                <span class="title">Tutorías, Asesorías y Evaluación Docente</span> <span class="selected"></span>
+                <span class="arrow"></span></a>
+              <ul class="sub-menu" style="display: none;">
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="https://segadocentes.uach.mx/Tutorias/index.cgi?id=a389370" target="_blank"><i class="fa fa-cube"></i>
+                    <span class="title">Ficha de Diagnóstico</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-toggle" href="/tutorias/encuesta_de_satisfaccion/index"><i class="fa fa-file-download"></i>
+                    <span class="title">Encuesta de Satisfacción</span>
+                  </a>
+                </li>
+                <li class="nav-item start active">
+                  <a class="nav-link nav-toggle" href="/evaluacion_docentes"><i class="fa fa-address-book"></i>
+                    <span class="title">Evaluación Docente</span></a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link nav-toggle" href="/citas/index"><i class="fa fa-chalkboard-teacher"></i>
+                    <span class="title">Asesorías Académicas</span></a>
+                </li>
+              </ul>
+            </li>
+              <li class="nav-item start active">
+                <a class="nav-link nav-toggle" href="/carnet_sega/index"><i class="icon-home" aria-hidden="true"></i>
+                  <span class="title">Carnet + Vida Universitaria</span>
+                  <span class="arrow"></span>
+                </a>
+              </li>
+
+            <li class="nav-item start active">
+              <a class="nav-link nav-toggle" href="https://campusvirtual.uach.mx/" target="_blank">
+                <i aria-hidden="true" class="icon-screen-desktop"></i>
+                <span class="title">Campus Virtual</span> <span class="selected"></span>
+                <span class="arrow"></span>
+              </a>
+            </li>
+
+            <li class="nav-item start">
+              <a data-method="get" href="/usuarios/sign_out"><i class="fa fa-times" aria-hidden="true"></i>
+                Salir</a>
+            </li>
+            <li class="nav-item start active">
+            </li>
+            <li class="nav-item start" onclick="window.open('http://soporte.uach.mx/', '_blank')">
+              <a href="http://soporte.uach.mx/" class="nav-link nav-toggle" href="javascript:;" target="_blank">
+                <img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg" />
+              </a>
+            </li>
+          </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<div class="page-container" style="margin-top: 10px" >
+  <div class="page-sidebar-wrapper">
+    <div class="container">
+      <button class="btn btn-primary text-center" id="menuMovil" style="margin-top: 20px;">Menu</button>
+    </div>
+    
+    <div class="page-sidebar navbar-collapse collapse" id="sidebar">
+        <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu" data-auto-scroll="true" data-keep-expanded="true" data-slide-speed="100">
+          <li class="nav-item start active">
+            <a class="nav-link nav-toggle" href="datos_generales.html"><i class="fa fa-user" aria-hidden="true"></i>
+              <span class="title">Datos Generales</span>
+              <span class="arrow"></span>
+            </a>
+          </li>
+
+          <li class="nav-item start active">
+            <a class="nav-link active nav-toggle" href="javascript:;"><i class="fa fa-bookmark" aria-hidden="true"></i>
+              <span class="title">Consultas</span> <span class="selected"></span> <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu" style="display: none;">
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/programas_educativos"><i class="fas fa-id-badge"></i>
+                  <span class="title">Programas Educativos</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/kardex/index"><i class="fas fa-book-reader"></i>
+                  <span class="title">Kardex</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/horario/index"><i class="fas fa-clock"></i>
+                  <span class="title">Horario</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/calificaciones/index"><i class="fas fa-book-open"></i>
+                  <span class="title">Calificaciones</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/faltas/index"><i class="fa fa-area-chart"></i>
+                  <span class="title">Faltas</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/horario_de_evaluaciones/index"><i class="fas fa-comments"></i>
+                  <span class="title">Horario de evaluaciones</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/materias_disponibles/index"><i class="fas fa-book"></i>
+                  <span class="title">Materias Disponibles</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/materias_por_cursar/index"><i class="fas fa-road"></i>
+                  <span class="title">Materias por cursar</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/boleta/index"><i class="fas fa-file"></i>
+                  <span class="title">Boleta</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/papeleria_oficial/documentacion"><i class="fas fa-file-invoice"></i>
+                  <span class="title">Documentación</span></a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item start active">
+            <a class="nav-link nav-toggle" href="javascript:;"><i aria-hidden="true" class="fa fa-address-card"></i>
+              <span class="title">Inscripciones</span> <span class="selected"></span> <span class="arrow"></span></a>
+            <ul class="sub-menu" style="display: block;">
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/inscripciones/consulta_horario_inscripcion"><i class="fas fa-calendar-alt"></i>
+                  <span class="title">Horario de inscripción</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/inscripciones/preinscripcion/index"><i class="fa fa-cube"></i>
+                  <span class="title">Preinscripción/Inscripción</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/inscripciones/demanda_de_materias"><i class="fa fa-plus-square"></i>
+                  <span class="title">Demanda de Materias</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/altas_bajas"><i class="fa fa-bar-chart"></i>
+                  <span class="title">Altas-Bajas de Materias</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/baja_alumno"><i class="fa fa-user-minus"></i>
+                  <span class="title">Baja Temporal</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/doble_titulacion"><i class="fa fa-graduation-cap"></i>
+                  <span class="title">Doble Titulación</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/programas_especiales"><i class="fa fa-book-open"></i>
+                  <span class="title">Cursos Especiales</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item start active">
+            <a class="nav-link nav-toggle" href="https://pagosalumnos.uach.mx/" target="_blank"><i aria-hidden="true" class="fa fa-credit-card"></i>
+              <span class="title">Pagos Alumnos</span> <span class="selected"></span> <span class="arrow"></span></a>
+          </li>
+          <li class="nav-item start active">
+            <a class="nav-link nav-toggle" href="/papeleria_oficial/impresion"><i aria-hidden="true" class="fa fa-file-alt"></i>
+              <span class="title">Papelería oficial (Emisión constancias)</span> <span class="selected"></span> <span class="arrow"></span></a>
+          </li>
+
+          <li class="nav-item start active">
+            <a class="nav-link nav-toggle" href="javascript:;">
+              <span class="icon fa fa-graduation-cap"></span>
+              <span class="title">Titulaciones</span>
+              <span class="selected"></span>
+            </a>
+            <ul class="sub-menu" style="display: none;">
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/titulacion/solicitud"><i class="fa fa-file-alt"></i>
+                  <span class="title">Solicitud Titulación</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/titulacion/seguimiento/index"><i class="fa fa-cube"></i>
+                  <span class="title">Estatus Titulación</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/titulacion/seguimiento/impresion"><i class="fa fa-file-download"></i>
+                  <span class="title">Impresión de Título</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item start active">
+            <a class="nav-link nav-toggle" href="javascript:;">
+              <span class="icon fa fa-info-circle"></span>
+              <span class="title">Tutorías, Asesorías y Evaluación Docente</span>
+              <span class="selected"></span></a>
+            <ul class="sub-menu" style="display: none;">
+              <li class="nav-item start active">
+                <a class="nav-link nav-toggle" href="https://segadocentes.uach.mx/Tutorias/index.cgi?id=a389370" target="_blank"><i class="fa fa-cube"></i>
+                  <span class="title">Ficha de Diagnóstico</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-toggle" href="/tutorias/encuesta_de_satisfaccion/index"><i class="fa fa-file-download"></i>
+                  <span class="title">Encuesta de Satisfacción</span>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link nav-toggle" href="/evaluacion_docentes"><i class="fa fa-address-book"></i>
+                  <span class="title">Evaluación Docente</span></a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link nav-toggle" href="/citas/index"><i class="fa fa-chalkboard-teacher"></i>
+                  <span class="title">Asesorías Académicas</span></a>
+              </li>
+            </ul>
+          </li>
+
+            <li class="nav-item start active">
+              <a class="nav-link nav-toggle" href="/carnet_sega/index">
+                <i aria-hidden="true" class="fa fa-file-alt"></i>
+                <span class="title">Carnet + Vida Universitaria</span> <span class="selected"></span>
+                <span class="arrow"></span></a>
+            </li>
+
+          <li class="nav-item start active">
+            <a class="nav-link nav-toggle" href="https://campusvirtual.uach.mx/" target="_blank">
+              <i class="icon-screen-desktop"></i>
+              <span class="title">Campus Virtual</span>
+            </a>
+          </li>
+          <li class="nav-item start active">
+            <a href="http://soporte.uach.mx/" class="nav-link nav-toggle" href="javascript:;" target="_blank">
+              <img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg" />
+            </a>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="page-content-wrapper">
+    <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/datos_generales-f42a7b86c38a7405f099416aacee489f9d483cad709fd7335e13fb19fe952edc.css" />
+
+<div class="page-content">
+  <div class="page-head">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+          <div class="dashboard-stat2 bordered">
+            <div class="display">
+              <div class="number">
+                <div class="icon">
+                  <i class="fa fa-object-group font-yellow" aria-hidden="true"></i>
+                </div>
+                <h3 class="font-purple-sharp">
+                  <span data-counter="counterup">DATOS GENERALES</span>
+                  <small>UACH</small>
+                </h3>
+                <small>Aqui puedes ver tu informacion personal registrada en el sistema</small>
+                <p class="caption-subject sbold uppercase" style="color: #796699">Matricula: 389370</p>
+              </div>
+            </div>
+            <div class="progress-info">
+              <div class="progress">
+                  <span style="width: 76%;" class="progress-bar progress-bar-success purple-sharp">
+                  </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="row"  ng-controller="datosGeneralesController" >
+    <div class="col-md-12">
+      <div class="portlet light portlet-fit mt-element-ribbon portlet-datatable">
+        <div class="ribbon ribbon-clip ribbon-shadow ribbon-color-purple-wisteria uppercase">
+          <div class="ribbon-sub ribbon-clip"></div>
+          <i class="fa fa-object-group"></i> DATOS GENERALES
+        </div>
+        <div class="d-flex portlet-body flip-scroll">
+            
+<div class="form" ng-init="init([{&quot;IdPais&quot;:1,&quot;Pais&quot;:&quot;01&quot;,&quot;Descripcion&quot;:&quot;MÉXICO&quot;,&quot;Activo&quot;:true},{&quot;IdPais&quot;:2,&quot;Pais&quot;:&quot;02&quot;,&quot;Descripcion&quot;:&quot;ESTADOS UNIDOS&quot;,&quot;Activo&quot;:true}], {&quot;persona_id&quot;:399228,&quot;matricula&quot;:389370,&quot;nombre&quot;:&quot;RODRIGUEZ GERMAN OSCAR YRAM&quot;,&quot;genero&quot;:&quot;Masculino&quot;,&quot;fecha_nacimiento&quot;:&quot;27 Abr 2005&quot;,&quot;nacionalidad&quot;:&quot;MEXICANO (A)&quot;,&quot;nacionalidad_id&quot;:1,&quot;etnia_indigena&quot;:&quot;&quot;,&quot;etnia_indigena_id&quot;:0,&quot;estado_civil&quot;:&quot;SOLTERO&quot;,&quot;estado_civil_id&quot;:7,&quot;curp&quot;:&quot;ROGO050427HSRDRSA7&quot;,&quot;correo_electronico&quot;:&quot;pyv5oscaruni1@gmail.com&quot;,&quot;rfc&quot;:&quot;ROGO050427&quot;,&quot;telefono&quot;:&quot;(644) 1-01-33-92&quot;,&quot;celular&quot;:&quot;(644) 1-01-33-92&quot;,&quot;ln_pais_id&quot;:&quot;&quot;,&quot;ln_estado_id&quot;:&quot;&quot;,&quot;ln_municipio_id&quot;:&quot;&quot;,&quot;ln_localidad_id&quot;:2180,&quot;calle&quot;:&quot;Lateral Kino&quot;,&quot;numero_exterior&quot;:&quot;S/N&quot;,&quot;numero_interior&quot;:&quot;0&quot;,&quot;colonia&quot;:&quot;Col del Lago&quot;,&quot;codigo_postal&quot;:85138,&quot;nombre_emergencia&quot;:&quot;Jhoana Gabriela Chu Melendrez&quot;,&quot;telefono_emergencia&quot;:&quot;(644) 1-42-29-97&quot;,&quot;pais_id&quot;:1,&quot;estado_id&quot;:26,&quot;municipio_id&quot;:2011,&quot;localidad_id&quot;:2180,&quot;padece_discapacidad&quot;:&quot;N&quot;,&quot;tipo_discapacidad_id&quot;:1,&quot;tipo_discapacidad_descripcion&quot;:&quot;No aplica&quot;,&quot;discapacidad_descripcion&quot;:&quot;N/A&quot;,&quot;discapacidad_irreversible_id&quot;:1,&quot;discapacidad_irreversible&quot;:&quot;No aplica&quot;,&quot;nombre_beneficiario1&quot;:&quot;Mary Carmen Rodríguez Germán&quot;,&quot;parentesco_1_id&quot;:12,&quot;nombre_beneficiario2&quot;:&quot;&quot;,&quot;parentesco_2_id&quot;:0}, [{&quot;IdIrreversible&quot;:1,&quot;Descripcion&quot;:&quot;No aplica&quot;,&quot;Vigente&quot;:true},{&quot;IdIrreversible&quot;:2,&quot;Descripcion&quot;:&quot;Auditiva&quot;,&quot;Vigente&quot;:true}])">
+  <form action="/guardar_datos_generales" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="yQ8YZ6/lmdSYHj8Kd114L7Eki5vzH+W96BD/VvAMAo0tAcUXe1wJAtfJ2AviIXYWXqBoSthNomnrooIoj/keGg==" />
+    <form class="form-horizontal"  role="form">
+      <div class="form-body">
+        <div class="col-md-12" >
+          <div class="form-group">
+            <h4 class="h-divider-donotcross" tabindex="1">Datos del Alumno</h4>
+            <div class="col-md-3 ">
+              <label class="col-md-12 control-label bold" tabindex="1">Matrícula</label>
+              <br>
+              <label class="col-md-12 control-label " tabindex="1">389370</label>
+              <input name="matricula" type="hidden" value="389370" tabindex="1">
+              <input name="persona_id" type="hidden" value="399228" tabindex="1">
+            </div>
+            <div class="col-md-3">
+              <label class="col-md-12 control-label bold" tabindex="1">Nombre</label>
+              <br>
+              <label class="col-md-12 control-label " tabindex="1">RODRIGUEZ GERMAN OSCAR YRAM</label>
+              <input name="nombre" type="hidden" value="RODRIGUEZ GERMAN OSCAR YRAM" tabindex="1">
+            </div>
+            <div class="col-md-3">
+              <label class="col-md-12 control-label bold" tabindex="1">Genero</label>
+              <br>
+              <label class="col-md-12 control-label" tabindex="1">Masculino</label>
+              <input name="genero" type="hidden" value="Masculino" tabindex="1">
+            </div>
+            <div class="col-md-3">
+              <label class="col-md-12 control-label bold" tabindex="1">Fecha de Nacimiento</label>
+              <br>
+              <label class="col-md-12 control-label " tabindex="1">27 Abr 2005    </label>
+              <input name="fecha_nacimiento" type="hidden" value="27 Abr 2005    " tabindex="1">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <h4 class="h-divider-donotcross" tabindex="1" >Datos Generales</h4>
+            <div class="d-flex justify-content-md-center">
+              <div class="row align-items-center col-md-12">
+                <div class="row align-items-center col-md-12">
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1">Nacionalidad </label>
+                    <select class="form-control  m-input m-input--square" tabindex="1" name="nacionalidad[id]" id="nacionalidad_id"><option selected="selected" value="1">MEXICANO (A)</option><option value="2">EXTRANJERO (A)</option></select>
+                  </div>
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1">Etnia Indigena</label>
+                    <select class="form-control  m-input m-input--square" tabindex="1" name="etnia_indigena[id]" id="etnia_indigena_id"><option value="">Seleccionar una opción</option><option value="1">CHATINA</option></select>
+                  </div>
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1">Estado Civil </label>
+                    <select class="form-control  m-input m-input--square" tabindex="1" name="estado_civil[id]" id="estado_civil_id"><option selected="selected" value="7">SOLTERO</option><option value="8">CASADO</option></select>
+                  </div>
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1">CURP</label>
+                    <input type="text" name="curp" tabindex="1" id="curp" class="form-control" tabindex="1"  placeholder="curp" value="ROGO050427HSRDRSA7" disabled>
+                    <span class="help-block"> </span>
+                  </div>
+                </div>
+                <div class="row align-items-center  col-md-12 mt-3">
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1">Correo Electronico</label>
+                    <input type="text" name="correo_electronico" tabindex="1" id="email" class="form-control" placeholder="Electronico" value="pyv5oscaruni1@gmail.com">
+                  </div>
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1">RFC</label>
+                    <input type="text" name="rfc" id="rfc" tabindex="1" class="form-control" placeholder="rfc" value="ROGO050427">
+                    <span class="help-block"> </span>
+                  </div>
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1">Teléfono</label>
+                    <input type="text" name="telefono" tabindex="1" id="telefono" class="form-control" placeholder="" value="(644) 1-01-33-92" data-inputmask="'mask': '(999) 9-99-99-99'">
+                    <span class="help-block"> </span>
+                  </div>
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1">Célular</label>
+                    <input type="text" name="celular" id="celular" tabindex="1" class="form-control" placeholder="" value="(644) 1-01-33-92" data-inputmask="'mask': '(999) 9-99-99-99'">
+                    <span class="help-block"> </span>
+                  </div>
+                </div>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <h4 class="h-divider-donotcross" tabindex="1">Dirección Actual</h4>
+            <div class="d-flex justify-content-md-center">
+              <div class="align-items-center col-md-12">
+                <div class="row col-md-12">
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1" >Calle</label>
+                    <input name="calle" type="text" class="form-control" tabindex="1" value="Lateral Kino">
+                    <span class="help-block"></span>
+                  </div>
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1">Número Exterior</label>
+                    <input name="numero_exterior" type="text" class="form-control" tabindex="1" value="S/N">
+                    <span class="help-block"></span>
+                  </div>
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1">Número Interior</label>
+                    <input name="numero_interior" type="text" class="form-control" tabindex="1"  value="0">
+                    <span class="help-block"></span>
+                  </div>
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1">Colonia</label>
+                    <input name="colonia" type="text" class="form-control" tabindex="1" value="Col del Lago">
+                    <span class="help-block"></span>
+                  </div>
+                  <div class="col-sm">
+                    <label class="control-label  bold" tabindex="1">Código Postal</label>
+                    <input name="codigo_postal" type="text" class="form-control" tabindex="1" value="85138">
+                    <span class="help-block"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-md-center">
+              <div class="align-items-center col-md-12 text-center">
+                <small class="text-muted" style="display: list-item;list-style: none;" tabindex="1"><strong>Nota: </strong>escribe "0" si tu casa no tiene número interior.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <h4 class="h-divider-donotcross" tabindex="1">En caso de emergencia avisar a</h4>
+            <div class="d-flex justify-content-md-center col-md-12">
+              <div class="col-md-12">
+                <div class="row align-items-center col-md-12">
+                  <div class="col-sm">
+                    <label class="control-label bold" tabindex="1">Nombre</label>
+                    <input name="avisa_emergencia" type="text"  class="form-control" tabindex="1" value="Jhoana Gabriela Chu Melendrez">
+                    <span class="help-block"> </span>
+                  </div>
+                  <div class="col-sm">
+                    <label class="control-label bold" tabindex="1">Teléfono</label>
+                    <input name="telefono_emergencia" type="text" tabindex="1" id="telefono_emergencia" class="form-control"  value="(644) 1-42-29-97" data-inputmask="'mask': '(999) 9-99-99-99'">
+                    <span class="help-block"> </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <h4 class="h-divider-donotcross" tabindex="1">Datos Particulares</h4>
+            <div class="d-flex justify-content-md-center col-md-12">
+              <div class="col-md-12">
+                <div class="row align-items-center col-md-12">
+                  <div class="col-sm m-form__group form-group m-form__group ml-2">
+                    <label class="control-label  bold" tabindex="1">a. Padece alguna discapacidad</label>
+                    <div class="m-checkbox-inline">
+                      <label class="m-checkbox">
+                        <input name="padece_discapacidad" tabindex="1" type="radio" name="discapacidad" value="S" ng-model="padeceDiscapacidad">
+                        Si
+                        <span></span>
+                      </label>
+                      <label class="m-checkbox">
+                        <input name="padece_discapacidad" type="radio" tabindex="1" name="discapacidad" value="N" ng-model="padeceDiscapacidad">
+                        No
+                        <span></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <button class="btn purple-block-btn btn-block" type="submit">Aceptar y Guardar</button>
+        </div>
+      </div>
+    </form>
+  </form>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#telefono").inputmask();
+        $("#celular").inputmask();
+        $("#telefono_emergencia").inputmask();
+    });
+</script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+    $(".start").click(function () {
+        var z = $(this).children(".sub-menu");
+        $(z).toggle("slow", function () {
+
+        });
+    });
+</script>
+<style type=text/css>
+    .page-sidebar-menu.page-sidebar-menu-hover-submenu li:focus > .sub-menu {
+        display: inline-block !important;
+    }
+</style>
+</body>
+<div class="page-footer">
+  <div class="page-footer-inner">
+    2026 © Powered by
+    <a href="www.uach.mx" target="_blank">Universidad Autónoma de Chihuahua</a>
+  </div>
+  <div class="scroll-to-top">
+    <i class="icon-arrow-up"></i>
+  </div>
+</div>
+</html>

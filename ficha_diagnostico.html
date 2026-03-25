@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>   
+  <title>SETA</title>   
+  <meta HTTP-EQUIV="Expires" CONTENT="Tue, 01 Jan 1980 1:00:00 GMT">   
+  <META HTTP-EQUIV="Pragma" CONTENT="no-cache">   
+  <META NAME="AUTHOR" CONTENT="UACh-CGTI/Sistemas de Información">   
+  <META NAME="KEYWORD" CONTENT="Universidad Autónoma de Chihuahua, México, Mexico">   
+  <META NAME="DESCRIPTION" CONTENT="Información acerca de la Universidad Autónoma de Chihuahua (México).">   
+  
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#990000">
+  <link rel="apple-touch-icon" href="https://sega.uach.mx/assets/favicon-c16bfa3110b0ecbe5c7e9d6e254ddcaa0f3f1898005f0ac17ab90c1aa40f5472.png">
+  
+  <style>
+    /* Ajuste para que el diseño viejo no se desborde en celulares */
+    body { overflow-x: hidden; margin: 0; padding: 0; background-color: #FFFFFF; font-family: Arial, sans-serif; }
+    table { max-width: 100% !important; }
+    img { max-width: 100% !important; height: auto !important; }
+    .informacion { font-size: 14px; }
+    .titulo { font-weight: bold; color: #990000; }
+    .boton { background-color: #990000; color: white; border: none; padding: 5px 15px; cursor: pointer; }
+    .pie a { color: white; text-decoration: none; font-weight: bold; padding: 10px; display: inline-block; }
+  </style>
+  <link rel="stylesheet" href="https://segadocentes.uach.mx/tutorias/pantallas/interior.css" type="text/css">	
+  <script Language="JavaScript" src="https://segadocentes.uach.mx/tutorias/pantallas/libreriajs.js"></script> 
+</head>
+
+<body topmargin="0" leftmargin="0" bgcolor="FFFfff">
+<center>
+
+<Table border="0" width="790" bgcolor="#FFFFFF" cellspacing="0" cellpadding="0" height="400" align="center">   
+   <tr>      
+      <td colspan="3">	
+        <table border="0" width="100%" height="70" class="encabezado">   
+           <tr>        
+                <td> <img src="https://segadocentes.uach.mx/tutorias/images/encabezado.gif" width="100%"> </td>   
+           </tr>
+        </table>
+        </td>   
+   </tr>
+   <tr>      
+      <td width="150" color="#990000" valign="top" class="hidden-xs">	  
+          <table border="0" width="90%" height="514" cellspacing="0" cellpadding="0">		
+            <tr>		    
+                <td class="menu" valign="top" background="https://segadocentes.uach.mx/tutorias/images/fondoizquierdo.gif"> 			
+                <br><br><br><br>		   
+               </td>		
+            </tr>	  
+          </table>      
+      </td>	
+      <td width="10">&nbsp;</td>      
+      <td valign="top" width="80%">	
+        <table class="informacion" border="0" cellspacing="0" width="90%" style="margin-top: 20px;">	
+            <tr>		
+                <td colspan="2" width="100%" valign="TOP" class="titulo" align="center">			
+                    Bienvenido al Sistema Estratégico de Tutorías Académicas			
+                    <br><br> Ficha de Diagn&oacute;stico Inicial para la Tutor&iacute;a			
+                    <p><b>Por favor confirma tu contrase&ntilde;a</b></p>		
+                </td>	
+            </tr>
+            <tr>		
+                <td width="10%" class="hidden-xs">&nbsp;</td>		
+                <td align="center">		
+                <br><br>
+                <form method="POST" name="frmacceso" action="#" onsubmit="alert('Cargando Ficha de Diagnóstico...'); return false;">                        
+                        <table align="center" border="0" width="265" height="108" class="informacion" background="https://segadocentes.uach.mx/tutorias/images/cuadroacceso.gif" style="border: 1px solid #ccc; padding: 10px;">                                
+                                <tr>                                        
+                                        <td width="2" rowspan="4"></td>                                        
+                                        <td align="left" colspan="2" class="titulo" style="padding-bottom: 10px;">                                                
+                                                ACCESO a SETA <hr width="90%" color="#990000">                                        
+                                        </td>                                        
+                                        <td width="2" rowspan="4"></td>                                
+                                </tr>                                
+                                <tr>                                        
+                                        <td>                                                
+                                                Login                                        
+                                        </td>                                        
+                                        <td style="font-weight: bold;">						
+                                                a389370                                                
+                                                <input type="hidden" name="txtlogin" size="10" value="a389370">                                        
+                                        </td>                                
+                                </tr>                                
+                                <tr>                                        
+                                        <td>                                                
+                                                Contrase&ntilde;a                                        
+                                        </td>                                        
+                                        <td>                                                
+                                                <input type="password" name="txtcontrasena" size="10" class="combo" autocomplete="new-password">                                        
+                                        </td>                                
+                                </tr>                                
+                                <tr>                                        
+                                        <td></td>                                        
+                                        <td style="padding-top: 10px;">                                                
+                                                <input type="submit" value="ENTRAR" name="quehacer" class="boton">                                        
+                                        </td>                                
+                                </tr>                        
+                        </table>                 
+                 </form>		
+                </td>	
+            </tr>
+        </table>
+      </td>   
+   </tr>   
+   <tr>      
+      <td colspan="3">	
+        <table class="pie" width="100%" border="0" bgcolor="#990000" style="margin-top: 50px;">    
+            <tr>        
+                <td>            
+                    &nbsp;        
+                </td>		
+                <td align="right">			
+                    <a href="index.html">Volver a SEGA</a>		
+                </td>    
+            </tr>
+        </table>
+        </td>   
+   </tr>
+</table>
+
+</center>
+</body>
+</html>

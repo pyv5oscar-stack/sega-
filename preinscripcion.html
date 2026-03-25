@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="nuevoSega">
+<head>
+  <title>SEGA</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#796699">
+  <link rel="apple-touch-icon" href="https://sega.uach.mx/assets/favicon-c16bfa3110b0ecbe5c7e9d6e254ddcaa0f3f1898005f0ac17ab90c1aa40f5472.png">
+
+  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/application-ece7ac12c107ffb6f34f277e0388426526a1129a59d002da078f1805f904106d.css" />
+  <script src="https://sega.uach.mx/assets/application-d0e9eb48f7d65f7e30d4f553d2d72995e43aeb042df8f076105533eb9f0e86fe.js"></script>
+  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/dhtmlxscheduler-b508c591fd4f9916cbcf34ad1e1add4db5d1b7196562d5e04d4659c8113fc643.css" data-turbolinks-track="true" />
+  <script src="https://sega.uach.mx/assets/dhtmlxscheduler-dce4cf0db9c1f25cd8f3635b7ba1c0ee19e10e85a749bdbc3a78ba197a761f66.js" data-turbolinks-track="true"></script>
+
+  <meta name="csrf-param" content="authenticity_token" />
+  <meta name="csrf-token" content="ohLi6CjZtVt3HHVeniz40MaBGNzrENhgbMwj+65AFBG9Z4h1JsoUYJUymdM3uAUz9E6Dk9QIEP8hbcEeYjAHSg==" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://sega.uach.mx/assets/favicon-c16bfa3110b0ecbe5c7e9d6e254ddcaa0f3f1898005f0ac17ab90c1aa40f5472.png" />
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+  <script src="https://unpkg.com/popper.js@1"></script>
+  <script src="https://unpkg.com/tippy.js@5"></script>
+  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/inscripciones/preinscripcion-dd01d44b453a46d2413f97b17944ccf6352dbbc75897074685da8bfbdd903c71.css" />
+</head>
+
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo" ng-controller="layoutController">
+
+<div id="Loader">
+  <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" class="img-responsive"/>
+</div>
+<div id="LoaderAllPages">
+  <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" class="img-responsive"/>
+</div>
+
+<div class="page-header navbar navbar-fixed-top">
+  <div class="page-header-inner">
+    <div class="page-logo">
+      <a href="index.html" onclick="window.location.href='index.html'; return false;"><img class="logo-default" src="https://sega.uach.mx/assets/logo-uach-0dd6a98220ea3bdd801c171fa0685d37288eff4ab858a0917f7110474ffdd7d3.svg" /></a>
+      <div class="menu-toggler sidebar-toggler"></div>
+    </div>
+    <a aria-controls="sidebar" aria-expanded="false" class="menu-toggler responsive-toggler hidden-xs hidden-sm" data-target="#sidebar" data-toggle="collapse" href="javascript:;"></a>
+
+    <div class="page-actions">
+      <div class="btn-group">
+          <button type="button" class="btn purple-plum btn-sm botonHeaderPrimario" onclick="window.location.href='index.html'">
+            <i class="fas fa-angle-double-down"></i>
+            <span id="programaTopBar">PROGRAMA: LICENCIATURA EN ESTOMATOLOGIA </span>
+          </button>
+      </div>
+    </div>
+    <div class="page-top" id="topWeb">
+      <div class="top-menu">
+        <ul class="nav navbar-nav pull-right">
+          <li class="dropdown dropdown-user dropdown-dark">
+            <a class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-toggle="dropdown" href="javascript:;">
+              <span class="username">
+                RODRIGUEZ GERMAN OSCAR YRAM
+              </span>
+              <span class="fa fa-chevron-down"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-default">
+              <li>
+                <img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg" />
+                <a href="http://soporte.uach.mx" target="_blank"><i class="fa fa-question"></i> Soporte UACH</a>
+                <a ng-click="translatePage('en')" ng-hide="currentLanguage === 'en'"><i class="fa fa-globe"></i>Traducir</a>
+                <a ng-click="translatePage('es')" ng-show="currentLanguage === 'en'"><i class="fa fa-globe"></i>Traducir</a>
+              </li>
+              <li id="logout"><a data-method="get" href="login.html" onclick="window.location.href='login.html'; return false;">
+                  <i class="fa fa-times" aria-hidden="true"></i> Salir
+                </a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-top" id="topMovil">
+    <ul class="nav navbar-nav pull-right">
+      <li class="dropdown dropdown-user dropdown-dark" style="z-index: 9999;">
+        <a class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-toggle="dropdown" href="javascript:;"><span class="username">RODRIGUEZ GERMAN OSCAR YRAM</span> 
+        </a>
+      </li>
+    </ul>
+    <div class="content">
+      <nav>
+        <input type="checkbox" id="hamburger1"/>
+        <label for="hamburger1"></label>
+          <ul class="nav-links" data-auto-scroll="true" data-keep-expanded="true" data-slide-speed="100">
+            <li class="nav-item start active">
+              <a class="nav-link nav-toggle" href="index.html" onclick="window.location.href='index.html'; return false;"><i class="icon-home" aria-hidden="true"></i>
+                <span class="title">Inicio</span>
+                <span class="arrow"></span>
+              </a>
+            </li>
+            <li class="nav-item start">
+              <a class="nav-link active nav-toggle" href="javascript:;"><i class="fa fa-bookmark" aria-hidden="true"></i>
+                <span class="title">Consultas</span> <span class="selected"></span> <span class="arrow"></span></a>
+              <ul class="sub-menu" style="display: none;">
+                <li class="nav-item"><a class="nav-link nav-toggle" href="index.html" onclick="window.location.href='index.html'; return false;"><i class="fas fa-id-badge"></i><span class="title">Programas Educativos</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="kardex.html" onclick="window.location.href='kardex.html'; return false;"><i class="fas fa-book-reader"></i><span class="title">Kardex</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="horario.html" onclick="window.location.href='horario.html'; return false;"><i class="fas fa-clock"></i><span class="title">Horario</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="calificaciones.html" onclick="window.location.href='calificaciones.html'; return false;"><i class="fas fa-book-open"></i><span class="title">Calificaciones</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="faltas.html" onclick="window.location.href='faltas.html'; return false;"><i class="fa fa-area-chart"></i><span class="title">Faltas</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="horario_evaluaciones.html" onclick="window.location.href='horario_evaluaciones.html'; return false;"><i class="fas fa-comments"></i><span class="title">Horario de evaluaciones</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="materias_disponibles.html" onclick="window.location.href='materias_disponibles.html'; return false;"><i class="fas fa-book"></i><span class="title">Materias Disponibles</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="materias_por_cursar.html" onclick="window.location.href='materias_por_cursar.html'; return false;"><i class="fas fa-road"></i><span class="title">Materias por cursar</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="boleta.html" onclick="window.location.href='boleta.html'; return false;"><i class="fas fa-file"></i><span class="title">Boleta</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="documentacion.html" onclick="window.location.href='documentacion.html'; return false;"><i class="fas fa-file-invoice"></i><span class="title">Documentación</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item start">
+              <a class="nav-link nav-toggle" href="javascript:;"><i aria-hidden="true" class="fa fa-address-card"></i>
+                <span class="title">Inscripciones</span> <span class="selected"></span> <span class="arrow"></span></a>
+              <ul class="sub-menu" style="display: block;">
+                <li class="nav-item"><a class="nav-link nav-toggle" href="horario_inscripcion.html" onclick="window.location.href='horario_inscripcion.html'; return false;"><i class="fas fa-calendar-alt"></i><span class="title">Horario de inscripción</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="preinscripcion.html" onclick="window.location.href='preinscripcion.html'; return false;"><i class="fa fa-cube"></i><span class="title">Preinscripción/Inscripción</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="demanda_materias.html" onclick="window.location.href='demanda_materias.html'; return false;"><i class="fa fa-plus-square"></i><span class="title">Demanda de materias</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="altas_bajas.html" onclick="window.location.href='altas_bajas.html'; return false;"><i class="fa fa-bar-chart"></i><span class="title">Altas-Bajas de Materias</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="baja_temporal.html" onclick="window.location.href='baja_temporal.html'; return false;"><i class="fa fa-user-minus"></i><span class="title">Baja Temporal</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="doble_titulacion.html" onclick="window.location.href='doble_titulacion.html'; return false;"><i class="fa fa-graduation-cap"></i><span class="title">Doble Titulación</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="cursos_especiales.html" onclick="window.location.href='cursos_especiales.html'; return false;"><i class="fa fa-book-open"></i><span class="title">Cursos Especiales</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item start active"><a class="nav-link nav-toggle" href="https://pagosalumnos.uach.mx/" target="_blank"><i aria-hidden="true" class="fa fa-credit-card"></i><span class="title">Pagos Alumnos</span> <span class="selected"></span> <span class="arrow"></span></a></li>
+            <li class="nav-item start active"><a class="nav-link nav-toggle" href="papeleria_impresion.html" onclick="window.location.href='papeleria_impresion.html'; return false;"><i class="fa fa-file-alt"></i><span class="title"> Papelería oficial (Emisión constancias)</span><span class="arrow"></span></a></li>
+            <li class="nav-item start">
+              <a class="nav-link nav-toggle" href="javascript:;"><i aria-hidden="true" class="fa fa-graduation-cap"></i>
+                <span class="title">Titulaciones</span> <span class="selected"></span> <span class="arrow"></span></a>
+              <ul class="sub-menu" style="display: none;">
+                <li class="nav-item"><a class="nav-link nav-toggle" href="solicitud_titulacion.html" onclick="window.location.href='solicitud_titulacion.html'; return false;"><i class="fa fa-file-alt"></i><span class="title">Solicitud Titulación</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="estatus_titulacion.html" onclick="window.location.href='estatus_titulacion.html'; return false;"><i class="fa fa-cube"></i><span class="title">Estatus Titulación</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="impresion_titulo.html" onclick="window.location.href='impresion_titulo.html'; return false;"><i class="fa fa-file-download"></i><span class="title">Impresión de Titulo</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item start">
+              <a class="nav-link nav-toggle" href="javascript:;"><i aria-hidden="true" class="fa fa-info-circle"></i>
+                <span class="title">Tutorías, Asesorías y Evaluación Docente</span> <span class="selected"></span><span class="arrow"></span></a>
+              <ul class="sub-menu" style="display: none;">
+                <li class="nav-item"><a class="nav-link nav-toggle" href="ficha_diagnostico.html" onclick="window.location.href='ficha_diagnostico.html'; return false;"><i class="fa fa-cube"></i><span class="title">Ficha de Diagnóstico</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="encuesta_satisfaccion.html" onclick="window.location.href='encuesta_satisfaccion.html'; return false;"><i class="fa fa-file-download"></i><span class="title">Encuesta de Satisfacción</span></a></li>
+                <li class="nav-item start active"><a class="nav-link nav-toggle" href="evaluacion_docentes.html" onclick="window.location.href='evaluacion_docentes.html'; return false;"><i class="fa fa-address-book"></i><span class="title">Evaluación Docente</span></a></li>
+                <li class="nav-item "><a class="nav-link nav-toggle" href="asesorias_academicas.html" onclick="window.location.href='asesorias_academicas.html'; return false;"><i class="fa fa-chalkboard-teacher"></i><span class="title">Asesorías Académicas</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item start active"><a class="nav-link nav-toggle" href="carnet.html" onclick="window.location.href='carnet.html'; return false;"><i class="icon-home" aria-hidden="true"></i><span class="title">Carnet + Vida Universitaria</span><span class="arrow"></span></a></li>
+            <li class="nav-item start active"><a class="nav-link nav-toggle" href="reservaciones.html" onclick="window.location.href='reservaciones.html'; return false;"> <i class="fa fa-calendar"></i><span class="title"> Reservaciones Curso:  Primeros Auxilios</span><span class="arrow"></span></a></li>
+            <li class="nav-item start active"><a class="nav-link nav-toggle" href="https://campusvirtual.uach.mx/" target="_blank"><i aria-hidden="true" class="icon-screen-desktop"></i><span class="title">Campus Virtual</span> <span class="selected"></span><span class="arrow"></span></a></li>
+            <li class="nav-item start"><a data-method="get" href="login.html" onclick="window.location.href='login.html'; return false;"><i class="fa fa-times" aria-hidden="true"></i> Salir</a></li>
+            <li class="nav-item start active"><a class="nav-link nav-toggle" href="#"><span class="icon fa fa-user-graduate"></span><span class="title">Tutor: JOSE ALBERTO PEÑA FLORES PORTILLO</span><span class="selected"></span></a></li>
+            <li class="nav-item start" onclick="window.open('http://soporte.uach.mx/', '_blank')"><a href="http://soporte.uach.mx/" class="nav-link nav-toggle" target="_blank"><img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg" /></a></li>
+          </ul>
+      </nav>
+    </div>
+  </div>
+  </div>
+
+<div class="clearfix"></div>
+<div class="page-container" style="margin-top: 10px" >
+  
+  <div class="page-sidebar-wrapper">
+    <div class="container">
+      <button class="btn btn-primary text-center" id="menuMovil" style="margin-top: 20px;">Menu</button>
+    </div>
+    <div class="page-sidebar navbar-collapse collapse" id="sidebar">
+        <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu" data-auto-scroll="true" data-keep-expanded="true" data-slide-speed="100">
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="datos_generales.html" onclick="window.location.href='datos_generales.html'; return false;"><i class="fa fa-user" aria-hidden="true"></i><span class="title">Datos Generales</span><span class="arrow"></span></a></li>
+          <li class="nav-item start active"><a class="nav-link active nav-toggle" href="javascript:;"><i class="fa fa-bookmark" aria-hidden="true"></i><span class="title">Consultas</span> <span class="selected"></span> <span class="arrow"></span></a>
+            <ul class="sub-menu" style="display: none;">
+              <li class="nav-item"><a class="nav-link nav-toggle" href="index.html" onclick="window.location.href='index.html'; return false;"><i class="fas fa-id-badge"></i><span class="title">Programas Educativos</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="kardex.html" onclick="window.location.href='kardex.html'; return false;"><i class="fas fa-book-reader"></i><span class="title">Kardex</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="horario.html" onclick="window.location.href='horario.html'; return false;"><i class="fas fa-clock"></i><span class="title">Horario</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="calificaciones.html" onclick="window.location.href='calificaciones.html'; return false;"><i class="fas fa-book-open"></i><span class="title">Calificaciones</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="faltas.html" onclick="window.location.href='faltas.html'; return false;"><i class="fa fa-area-chart"></i><span class="title">Faltas</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="horario_evaluaciones.html" onclick="window.location.href='horario_evaluaciones.html'; return false;"><i class="fas fa-comments"></i><span class="title">Horario de evaluaciones</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="materias_disponibles.html" onclick="window.location.href='materias_disponibles.html'; return false;"><i class="fas fa-book"></i><span class="title">Materias Disponibles</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="materias_por_cursar.html" onclick="window.location.href='materias_por_cursar.html'; return false;"><i class="fas fa-road"></i><span class="title">Materias por cursar</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="boleta.html" onclick="window.location.href='boleta.html'; return false;"><i class="fas fa-file"></i><span class="title">Boleta</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="documentacion.html" onclick="window.location.href='documentacion.html'; return false;"><i class="fas fa-file-invoice"></i><span class="title">Documentación</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="javascript:;"><i aria-hidden="true" class="fa fa-address-card"></i><span class="title">Inscripciones</span> <span class="selected"></span> <span class="arrow"></span></a>
+            <ul class="sub-menu" style="display: block;">
+              <li class="nav-item"><a class="nav-link nav-toggle" href="horario_inscripcion.html" onclick="window.location.href='horario_inscripcion.html'; return false;"><i class="fas fa-calendar-alt"></i><span class="title">Horario de inscripción</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="preinscripcion.html" onclick="window.location.href='preinscripcion.html'; return false;"><i class="fa fa-cube"></i><span class="title">Preinscripción/Inscripción</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="demanda_materias.html" onclick="window.location.href='demanda_materias.html'; return false;"><i class="fa fa-plus-square"></i><span class="title">Demanda de Materias</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="altas_bajas.html" onclick="window.location.href='altas_bajas.html'; return false;"><i class="fa fa-bar-chart"></i><span class="title">Altas-Bajas de Materias</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="baja_temporal.html" onclick="window.location.href='baja_temporal.html'; return false;"><i class="fa fa-user-minus"></i><span class="title">Baja Temporal</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="doble_titulacion.html" onclick="window.location.href='doble_titulacion.html'; return false;"><i class="fa fa-graduation-cap"></i><span class="title">Doble Titulación</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="cursos_especiales.html" onclick="window.location.href='cursos_especiales.html'; return false;"><i class="fa fa-book-open"></i><span class="title">Cursos Especiales</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="https://pagosalumnos.uach.mx/" target="_blank"><i aria-hidden="true" class="fa fa-credit-card"></i><span class="title">Pagos Alumnos</span> <span class="selected"></span> <span class="arrow"></span></a></li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="papeleria_impresion.html" onclick="window.location.href='papeleria_impresion.html'; return false;"><i aria-hidden="true" class="fa fa-file-alt"></i><span class="title">Papelería oficial (Emisión constancias)</span> <span class="selected"></span> <span class="arrow"></span></a></li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="javascript:;"><span class="icon fa fa-graduation-cap"></span><span class="title">Titulaciones</span><span class="selected"></span></a>
+            <ul class="sub-menu" style="display: none;">
+              <li class="nav-item"><a class="nav-link nav-toggle" href="solicitud_titulacion.html" onclick="window.location.href='solicitud_titulacion.html'; return false;"><i class="fa fa-file-alt"></i><span class="title">Solicitud Titulación</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="estatus_titulacion.html" onclick="window.location.href='estatus_titulacion.html'; return false;"><i class="fa fa-cube"></i><span class="title">Estatus Titulación</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="impresion_titulo.html" onclick="window.location.href='impresion_titulo.html'; return false;"><i class="fa fa-file-download"></i><span class="title">Impresión de Título</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="javascript:;"><span class="icon fa fa-info-circle"></span><span class="title">Tutorías, Asesorías y Evaluación Docente</span><span class="selected"></span></a>
+            <ul class="sub-menu" style="display: none;">
+              <li class="nav-item start active"><a class="nav-link nav-toggle" href="ficha_diagnostico.html" onclick="window.location.href='ficha_diagnostico.html'; return false;"><i class="fa fa-cube"></i><span class="title">Ficha de Diagnóstico</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="encuesta_satisfaccion.html" onclick="window.location.href='encuesta_satisfaccion.html'; return false;"><i class="fa fa-file-download"></i><span class="title">Encuesta de Satisfacción</span></a></li>
+              <li class="nav-item "><a class="nav-link nav-toggle" href="evaluacion_docentes.html" onclick="window.location.href='evaluacion_docentes.html'; return false;"><i class="fa fa-address-book"></i><span class="title">Evaluación Docente</span></a></li>
+              <li class="nav-item "><a class="nav-link nav-toggle" href="asesorias_academicas.html" onclick="window.location.href='asesorias_academicas.html'; return false;"><i class="fa fa-chalkboard-teacher"></i><span class="title">Asesorías Académicas</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="carnet.html" onclick="window.location.href='carnet.html'; return false;"><i aria-hidden="true" class="fa fa-file-alt"></i><span class="title">Carnet + Vida Universitaria</span> <span class="selected"></span><span class="arrow"></span></a></li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="reservaciones.html" onclick="window.location.href='reservaciones.html'; return false;"> <i class="fa fa-calendar"></i><span class="title">Reservaciones Curso: Primeros Auxilios</span> <span class="selected"></span><span class="arrow"></span></a></li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="https://campusvirtual.uach.mx/" target="_blank"><i class="icon-screen-desktop"></i><span class="title">Campus Virtual</span></a></li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="#"><span class="icon fa fa-user-graduate"></span><span class="title">Tutor: JOSE ALBERTO PEÑA FLORES PORTILLO</span><span class="selected"></span></a></li>
+          <li class="nav-item start active"><a href="http://soporte.uach.mx/" class="nav-link nav-toggle" target="_blank"><img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg" /></a></li>
+        </ul>
+    </div>
+  </div>
+  <div class="page-content-wrapper">
+    <div class="page-content" ng-controller="inscripciones_controller">
+      <div class="page-head">
+            <div class="col-md-12">
+              <div class="portlet light bordered">
+                <div class="portlet-title">
+                  <div class="caption font-yellow">
+                    <div class="icon">
+                      <i class="fa fa-warning" aria-hidden="true"></i>
+                      <span class="caption-subject bold uppercase" tabindex="1"> Información Importante</span>
+                      <span class="caption-helper"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="portlet-body" tabindex="1">
+                  <div class="note note-warning">
+                      El Alumno tiene estatus de REINGRESO INSCRITO el cual no es válido para el proceso de inscripción
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+        
+        // FIX PARA MENÚ EN MÓVIL
+        $(".nav-item > a.nav-toggle").on('click', function (e) {
+            var sub = $(this).next(".sub-menu");
+            if (sub.length > 0) {
+                e.preventDefault(); 
+                e.stopPropagation();
+                if (sub.is(":visible")) {
+                    sub.slideUp("fast"); 
+                    $(this).parent().removeClass("open");
+                } else {
+                    sub.slideDown("fast"); 
+                    $(this).parent().addClass("open");
+                }
+            }
+        });
+    });
+</script>
+
+<style type=text/css>
+    .page-sidebar-menu.page-sidebar-menu-hover-submenu li:focus > .sub-menu {
+        display: inline-block !important;
+    }
+</style>
+
+<div class="page-footer">
+  <div class="page-footer-inner">
+    2026 © Powered by <a href="www.uach.mx" target="_blank">Universidad Autónoma de Chihuahua</a>
+  </div>
+  <div class="scroll-to-top">
+    <i class="icon-arrow-up"></i>
+  </div>
+</div>
+</body>
+</html>

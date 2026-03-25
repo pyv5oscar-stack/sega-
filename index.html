@@ -14,42 +14,36 @@
 
   <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/application-ece7ac12c107ffb6f34f277e0388426526a1129a59d002da078f1805f904106d.css" />
   <script src="https://sega.uach.mx/assets/application-d0e9eb48f7d65f7e30d4f553d2d72995e43aeb042df8f076105533eb9f0e86fe.js"></script>
-  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/dhtmlxscheduler-b508c591fd4f9916cbcf34ad1e1add4db5d1b7196562d5e04d4659c8113fc643.css" data-turbolinks-track="true" />
-  <script src="https://sega.uach.mx/assets/dhtmlxscheduler-dce4cf0db9c1f25cd8f3635b7ba1c0ee19e10e85a749bdbc3a78ba197a761f66.js" data-turbolinks-track="true"></script>
-
-  <meta name="csrf-param" content="authenticity_token" />
-  <meta name="csrf-token" content="bmbBT9wdY5TbDQ2/d/XahcZtcHP1pzb36oUXm4p0zwh5X9JYyCJpSwRD1qZw8U5UtU/cZ6nIXFKZZx+aj3oH0A==" />
+  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/dhtmlxscheduler-b508c591fd4f9916cbcf34ad1e1add4db5d1b7196562d5e04d4659c8113fc643.css" />
+  <script src="https://sega.uach.mx/assets/dhtmlxscheduler-dce4cf0db9c1f25cd8f3635b7ba1c0ee19e10e85a749bdbc3a78ba197a761f66.js"></script>
   <link rel="shortcut icon" type="image/x-icon" href="https://sega.uach.mx/assets/favicon-c16bfa3110b0ecbe5c7e9d6e254ddcaa0f3f1898005f0ac17ab90c1aa40f5472.png" />
-
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
-  <script src="https://unpkg.com/popper.js@1"></script>
-  <script src="https://unpkg.com/tippy.js@5"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
 </head>
 
-<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo" ng-controller="layoutController">
-
-<div id="Loader">
-  <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" class="img-responsive"/>
-</div>
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
 
 <div class="page-header navbar navbar-fixed-top">
   <div class="page-header-inner">
     <div class="page-logo">
-      <a href="index.html" target="_self" onclick="window.location.href='index.html'; return false;"><img class="logo-default" src="https://sega.uach.mx/assets/logo-uach-0dd6a98220ea3bdd801c171fa0685d37288eff4ab858a0917f7110474ffdd7d3.svg" /></a>
+      <a href="index.html" onclick="window.location.href='index.html'; return false;"><img class="logo-default" src="https://sega.uach.mx/assets/logo-uach-0dd6a98220ea3bdd801c171fa0685d37288eff4ab858a0917f7110474ffdd7d3.svg" /></a>
       <div class="menu-toggler sidebar-toggler"></div>
     </div>
-    <div class="page-top" id="topWeb">
+    <div class="page-actions">
+      <div class="btn-group">
+          <button type="button" class="btn purple-plum btn-sm" onclick="window.location.href='index.html'">
+            <i class="fas fa-angle-double-down"></i> PROGRAMA: LICENCIATURA EN ESTOMATOLOGIA 
+          </button>
+      </div>
+    </div>
+    <div class="page-top">
       <div class="top-menu">
         <ul class="nav navbar-nav pull-right">
           <li class="dropdown dropdown-user dropdown-dark">
             <a class="dropdown-toggle" data-toggle="dropdown">
               <span class="username">RODRIGUEZ GERMAN OSCAR YRAM</span>
-              <span class="fa fa-chevron-down"></span>
+              <i class="fa fa-angle-down"></i>
             </a>
-            <ul class="dropdown-menu dropdown-menu-default">
-              <li id="logout"><a href="login.html" target="_self" onclick="window.location.href='login.html'; return false;"><i class="fa fa-times" aria-hidden="true"></i> Salir</a></li>
-            </ul>
           </li>
         </ul>
       </div>
@@ -59,29 +53,22 @@
 
 <div class="clearfix"></div>
 
-<div class="page-container" style="margin-top: 10px" >
+<div class="page-container" style="margin-top: 10px">
   <div class="page-sidebar-wrapper">
     <div class="page-sidebar navbar-collapse collapse" id="sidebar">
-        <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu" data-auto-scroll="true" data-keep-expanded="true" data-slide-speed="100">
+        <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu">
           <li class="nav-item start active">
-            <a class="nav-link nav-toggle" href="datos_generales.html" target="_self" onclick="window.location.href='datos_generales.html'; return false;"><i class="fa fa-user" aria-hidden="true"></i>
-              <span class="title">Datos Generales</span>
-              <span class="arrow"></span>
-            </a>
+            <a class="nav-link" href="datos_generales.html" onclick="window.location.href='datos_generales.html'; return false;"><i class="fa fa-user"></i> <span class="title">Datos Generales</span></a>
           </li>
           <li class="nav-item start active">
-            <a class="nav-link active nav-toggle" href="javascript:;"><i class="fa fa-bookmark" aria-hidden="true"></i>
-              <span class="title">Consultas</span> <span class="selected"></span> <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
+            <a class="nav-link nav-toggle" href="javascript:;"><i class="fa fa-bookmark"></i> <span class="title">Consultas</span> <span class="arrow open"></span></a>
+            <ul class="sub-menu" style="display: block;">
               <li><a href="index.html" onclick="window.location.href='index.html'; return false;">Programas Educativos</a></li>
               <li><a href="kardex.html" onclick="window.location.href='kardex.html'; return false;">Kardex</a></li>
               <li><a href="horario.html" onclick="window.location.href='horario.html'; return false;">Horario</a></li>
               <li><a href="calificaciones.html" onclick="window.location.href='calificaciones.html'; return false;">Calificaciones</a></li>
               <li><a href="faltas.html" onclick="window.location.href='faltas.html'; return false;">Faltas</a></li>
               <li><a href="horario_evaluaciones.html" onclick="window.location.href='horario_evaluaciones.html'; return false;">Horario evaluaciones</a></li>
-              <li><a href="materias_disponibles.html" onclick="window.location.href='materias_disponibles.html'; return false;">Materias Disponibles</a></li>
-              <li><a href="materias_por_cursar.html" onclick="window.location.href='materias_por_cursar.html'; return false;">Materias por cursar</a></li>
               <li><a href="boleta.html" onclick="window.location.href='boleta.html'; return false;">Boleta</a></li>
               <li><a href="documentacion.html" onclick="window.location.href='documentacion.html'; return false;">Documentación</a></li>
             </ul>
@@ -113,10 +100,10 @@
         <div class="col-md-8">
           <div class="program-card-container program-card-selected">
             <div class="program selectedItem">
-              <div class="selectedIcon"><i class="fas fa-check" style="color:#e6ab08; font-size: 0.7em;"></i></div>
+              <div class="selectedIcon"><i class="fas fa-check" style="color:#e6ab08;"></i></div>
               <h3>FACULTAD DE ODONTOLOGIA</h3>
               <div class="faculty-icon">
-                <img alt="UA FO" class="img-fluid" src="https://sega.uach.mx/assets/iconos_unidades/icono_ua_fo-3906ff432672af1b7e863a369fda5a5c5319636e2bc963ec81195b6eff2a7fcd.png">
+                <img class="img-fluid" src="https://sega.uach.mx/assets/iconos_unidades/icono_ua_fo-3906ff432672af1b7e863a369fda5a5c5319636e2bc963ec81195b6eff2a7fcd.png">
               </div>
               <ul class="listaProgramas">
                 <li><b>Programa Educativo</b><br/>LICENCIATURA EN ESTOMATOLOGIA</li>
@@ -128,19 +115,26 @@
             </div>
           </div>
         </div>
+        
+        <div class="col-md-4">
+          <div class="portlet light bordered mt-element-ribbon">
+            <div class="ribbon ribbon-color-purple-wisteria uppercase">
+              <i class="fa fa-info-circle"></i> AYUDA
+            </div>
+            <div class="portlet-body">
+              <h5><i class="fas fa-angle-right" style="color:#800080;"></i> Programa Educativo</h5>
+              <span>Elige el Programa Educativo del cual quieres realizar alguna transacción.</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-    $(document).ready(function () {
-        $('.dropdown-toggle').dropdown();
-    });
-    $(".start").click(function () {
-        var z = $(this).children(".sub-menu");
-        $(z).toggle("slow");
-    });
+    $(document).ready(function () { $('.dropdown-toggle').dropdown(); });
+    $(".start").click(function () { $(this).children(".sub-menu").toggle("slow"); });
 </script>
 </body>
 </html>

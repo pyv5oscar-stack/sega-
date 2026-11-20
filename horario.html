@@ -330,7 +330,7 @@
                 <span class="caption-subject sbold uppercase" style="color: #796699" tabindex="1">Programa: LICENCIATURA EN ESTOMATOLOGIA</span>
               </div>
               <div class="actions">
-                <a href="horario.html" target="_blank" tabindex="1" class="btn btn-warning btn-big">Imprimir horario</a>
+                <button type="button" onclick="imprimirHorarioPDF()" tabindex="1" class="btn btn-warning btn-big">Imprimir horario</button>
               </div>
             </div>
             <div class="portlet-body">
@@ -348,7 +348,7 @@
               </div>
 
               <div class="table-scrollable">
-                <table class="table table-hover table-light table-auto-layout" style="margin-top: -40px;">
+                <table id="tablaHorarioPrincipal" class="table table-hover table-light table-auto-layout" style="margin-top: -40px;">
                   <thead>
                   <tr>
                     <th tabindex="1">Ciclo</th>
@@ -476,7 +476,7 @@
             </div>
             <div class="portlet-body">
               <div class="table-scrollable">
-                <table class="table table-hover table-light table-auto-layout" style="margin-top: -40px;">
+                <table id="tablaMaestrosHorario" class="table table-hover table-light table-auto-layout" style="margin-top: -40px;">
                   <thead>
                     <tr>
                       <th tabindex="1">Clave</th>
@@ -489,7 +489,7 @@
                     <tr tabindex="1">
                       <td class="col-md-1">LEE513</td>
                       <td style="color:chocolate;" class="col-md-2">PRECLINICA DE ATENCION AL PACIENTE</td>
-                      <td class="col-md-2">PEREZ CASTAÑON KEVIN OMAR</td>
+                      <td class="col-md-2">DUARTE RICO RAQUEL</td>
                       <td class="col-md-1">TEORIA</td>
                     </tr>
                     <tr tabindex="1">
@@ -519,7 +519,7 @@
                     <tr tabindex="1">
                       <td class="col-md-1">LEE515</td>
                       <td style="color:chocolate;" class="col-md-2">BIOSEGURIDAD</td>
-                      <td class="col-md-2">DUARTE RICO RAQUEL</td>
+                      <td class="col-md-2">PEREZ CASTAÑON KEVIN OMAR</td>
                       <td class="col-md-1">TEORIA</td>
                     </tr>
                   </tbody>
@@ -544,7 +544,7 @@
                 <div class="bootstrap-table">
                   <div class="fixed-table-container" style="margin-top: 20px; padding-bottom: 40px;">
                     <div class="table-scrollable">
-                      <table class="table table-hover table-light table-responsive" style="margin-top: -40px;">
+                      <table id="tablaSalonesHorario" class="table table-hover table-light table-responsive" style="margin-top: -40px;">
                         <thead>
                           <tr>
                             <th tabindex="1">Clave</th>
@@ -595,6 +595,57 @@
 </div>
 
 <script>
+    function imprimirHorarioPDF() {
+        var tablaHorario = document.getElementById('tablaHorarioPrincipal').outerHTML;
+        var tablaMaestros = document.getElementById('tablaMaestrosHorario').outerHTML;
+        var tablaSalones = document.getElementById('tablaSalonesHorario').outerHTML;
+
+        var ventana = window.open('', '_blank');
+        if (!ventana) {
+            window.print();
+            return;
+        }
+
+        ventana.document.write('<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Horario_389370.pdf</title>');
+        ventana.document.write('<style>');
+        ventana.document.write('@page { size: landscape; margin: 12mm; }');
+        ventana.document.write('body { font-family: Arial, Helvetica, sans-serif; color: #222; margin: 0; padding: 15px; font-size: 11px; }');
+        ventana.document.write('.header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #796699; padding-bottom: 10px; margin-bottom: 12px; }');
+        ventana.document.write('.header img { height: 48px; }');
+        ventana.document.write('.header-title { text-align: center; flex: 1; }');
+        ventana.document.write('.header-title h2 { margin: 0; color: #4b2e83; font-size: 16px; }');
+        ventana.document.write('.header-title p { margin: 2px 0 0; font-size: 12px; font-weight: bold; }');
+        ventana.document.write('.info-box { border: 1px solid #ccc; border-radius: 4px; padding: 8px 12px; margin-bottom: 12px; background: #fafafa; display: flex; justify-content: space-between; flex-wrap: wrap; }');
+        ventana.document.write('.info-box div { margin-right: 15px; line-height: 1.5; }');
+        ventana.document.write('.badge-aviso { text-align: center; background: #f3f0f8; border: 1px solid #d5cbe6; color: #5b4382; font-weight: bold; padding: 4px; margin-bottom: 10px; font-size: 11px; }');
+        ventana.document.write('table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }');
+        ventana.document.write('th, td { border: 1px solid #bbb; padding: 5px 6px; text-align: left; font-size: 10px; }');
+        ventana.document.write('th { background-color: #796699; color: #fff; text-transform: uppercase; }');
+        ventana.document.write('.grid-bottom { display: flex; gap: 14px; }');
+        ventana.document.write('.grid-bottom > div { flex: 1; }');
+        ventana.document.write('h4 { margin: 0 0 6px; color: #796699; font-size: 12px; border-bottom: 1px solid #ddd; padding-bottom: 3px; }');
+        ventana.document.write('</style></head><body>');
+        ventana.document.write('<div class="header">');
+        ventana.document.write('<img src="https://sega.uach.mx/assets/logo-uach-0dd6a98220ea3bdd801c171fa0685d37288eff4ab858a0917f7110474ffdd7d3.svg" alt="UACH">');
+        ventana.document.write('<div class="header-title"><h2>UNIVERSIDAD AUTÓNOMA DE CHIHUAHUA</h2><p>SISTEMA ESTRATÉGICO DE GESTIÓN ACADÉMICA - HORARIO DE CLASES</p></div>');
+        ventana.document.write('<div style="text-align:right;font-size:10px;"><strong>Ciclo:</strong> 2026-SEM-AGO/DIC<br><strong>Plan:</strong> 2024</div>');
+        ventana.document.write('</div>');
+        ventana.document.write('<div class="info-box">');
+        ventana.document.write('<div><strong>Matrícula:</strong> 389370<br><strong>Alumno:</strong> RODRIGUEZ GERMAN OSCAR YRAM</div>');
+        ventana.document.write('<div><strong>Unidad:</strong> FACULTAD DE ODONTOLOGIA<br><strong>Programa:</strong> LICENCIATURA EN ESTOMATOLOGIA</div>');
+        ventana.document.write('<div><strong>Campus:</strong> CHIHUAHUA<br><strong>Estatus:</strong> REINGRESO INSCRITO (PRESENCIAL)</div>');
+        ventana.document.write('</div>');
+        ventana.document.write('<div class="badge-aviso">DOCUMENTO INFORMATIVO - SIN VALIDEZ OFICIAL</div>');
+        ventana.document.write(tablaHorario);
+        ventana.document.write('<div class="grid-bottom">');
+        ventana.document.write('<div><h4>MAESTROS ASIGNADOS</h4>' + tablaMaestros + '</div>');
+        ventana.document.write('<div><h4>SALONES Y UBICACIÓN</h4>' + tablaSalones + '</div>');
+        ventana.document.write('</div>');
+        ventana.document.write('<script>window.onload = function(){ setTimeout(function(){ window.print(); }, 400); };<\/script>');
+        ventana.document.write('</body></html>');
+        ventana.document.close();
+    }
+
     $(document).ready(function () {
         $('.dropdown-toggle').dropdown();
 

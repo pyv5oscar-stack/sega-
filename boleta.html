@@ -22,11 +22,67 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
 
   <style>
-      .table thead tr th { background-color: #796699 !important; color: white !important; text-align: center; vertical-align: middle; border: none; }
-      .hoverTable td { text-align: center; vertical-align: middle; }
-      .ciclo-header { background-color: #f4f4f4; padding: 10px; border-left: 5px solid #796699; margin-top: 30px; margin-bottom: 10px; font-weight: bold; color: #796699; text-transform: uppercase; }
-      .promedio-box { text-align: right; padding: 15px; background: #fff; border: 1px solid #e7ecf1; margin-bottom: 20px; }
-      .promedio-box span { font-weight: bold; color: #796699; font-size: 1.2em; }
+      .boleta-label {
+          color: #6a5495;
+          font-weight: 700;
+          font-size: 13px;
+          text-transform: uppercase;
+          margin-bottom: 6px;
+          display: block;
+      }
+      .boleta-select {
+          width: 100%;
+          height: 38px;
+          border: 1px solid #a8c7e5;
+          border-radius: 3px;
+          padding: 6px 12px;
+          font-size: 14px;
+          color: #333;
+          background-color: #fff;
+          margin-bottom: 14px;
+      }
+      .btn-consultar-boleta {
+          width: 100%;
+          background-color: #2c2e33;
+          color: #ffffff;
+          border: none;
+          padding: 9px 15px;
+          font-size: 13px;
+          font-weight: 500;
+          border-radius: 2px;
+          margin-bottom: 28px;
+          transition: background-color 0.2s ease;
+      }
+      .btn-consultar-boleta:hover, .btn-consultar-boleta:focus {
+          background-color: #1f2024;
+          color: #ffffff;
+          outline: none;
+      }
+      .tabla-boleta thead tr th {
+          background-color: #796699 !important;
+          color: #ffffff !important;
+          text-align: center;
+          vertical-align: middle;
+          border: none !important;
+          font-weight: 600;
+          padding: 10px 8px;
+      }
+      .tabla-boleta tbody tr td {
+          text-align: center;
+          vertical-align: middle;
+          padding: 10px 8px;
+          border-top: 1px solid #eee;
+      }
+      .promedio-boleta {
+          margin-top: 14px;
+          margin-left: 18px;
+          font-size: 14px;
+          color: #333;
+      }
+      .promedio-boleta strong {
+          margin-right: 8px;
+          color: #222;
+      }
   </style>
 </head>
 <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo" ng-controller="layoutController">
@@ -198,9 +254,9 @@
   </div>
   <!-- FIN MENU SIDEBAR ESCRITORIO -->
 
-  <!-- INICIO CONTENIDO BOLETAS -->
+  <!-- INICIO CONTENIDO BOLETA -->
   <div class="page-content-wrapper">
-    <div class="page-content" style="min-height: 558px;">
+    <div class="page-content" style="min-height: 600px;">
       <div class="page-head">
         <div class="dashboard-stat2 bordered">
           <div class="display">
@@ -208,115 +264,159 @@
               <div class="icon">
                 <i class="fas fa-file font-yellow" aria-hidden="true"></i>
               </div>
-              <h3 class="font-purple-sharp"><span>BOLETAS</span></h3>
-              <small>Aquí puedes ver tus boletas de calificaciones por ciclo escolar - RODRIGUEZ GERMAN OSCAR YRAM</small>
+              <h3 class="font-purple-sharp"><span>BOLETA</span></h3>
+              <small>Aquí puedes consultar tu boleta de calificaciones por ciclo escolar - RODRIGUEZ GERMAN OSCAR YRAM</small>
+            </div>
+          </div>
+          <div class="progress-info">
+            <div class="progress">
+              <span style="width: 76%;" class="progress-bar progress-bar-success purple-sharp"></span>
             </div>
           </div>
           <div class="academic-info-card mt-30">
             <span class="info-card-title">Información Académica</span>
             <div><h5><strong>Unidad</strong></h5><span>FACULTAD DE ODONTOLOGIA</span><h5><strong>Programa</strong></h5><span>LICENCIATURA EN ESTOMATOLOGIA</span></div>
             <span class="vertical-line"></span>
-            <div><h5><strong>Plan</strong></h5><span>2024</span><h5><strong>Campus</strong></h5><span>CHIHUAHUA</span></div>
+            <div><h5><strong>Área</strong></h5><span>SIN AREA/OPCION</span><h5><strong>Plan</strong></h5><span>2024</span></div>
+            <span class="vertical-line"></span>
+            <div><h5><strong>Campus</strong></h5><span>CHIHUAHUA</span><h5><strong>Modalidad</strong></h5><span>PRESENCIAL</span></div>
             <span class="vertical-line"></span>
             <div><h5 class="text-center"><strong>Matricula</strong></h5><span>389370</span></div>
           </div>
         </div>
       </div>
 
-      <!-- CICLO 2026-SEM-ENE/JUN -->
-      <div class="ciclo-header">Ciclo Escolar: 2026-SEM-ENE/JUN</div>
-      <div class="portlet light bordered">
-        <div class="portlet-body">
-          <div class="table-scrollable">
-            <table class="table table-hover table-light">
-              <thead><tr><th>Clave</th><th>Nombre de la materia</th><th>Calificación</th><th>Tipo Examen</th><th>Observaciones</th></tr></thead>
-              <tbody>
-                <tr class="hoverTable"><td>ERS-24</td><td>ECOLOGIZACION Y RESPONSABILIDAD SOCIAL</td><td>7.76</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>IIG-24</td><td>INTERCULTURALIDADES, INCLUSION Y GENERO</td><td>7.0</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE411</td><td>INMUNOLOGIA</td><td>8.73</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE413</td><td>ANESTESIA EN ESTOMATOLOGIA</td><td>8.05</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE414</td><td>FUNDAMENTOS DE MINIMA INTERVENCION</td><td>8.70</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE415</td><td>OCLUSION</td><td>8.2</td><td>EXT</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE416</td><td>CIENCIA DE LOS MATERIALES ESTOMATOLOGICOS II</td><td>8.75</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE417</td><td>IMAGENOLOGIA EN ESTOMATOLOGIA II</td><td>9.0</td><td>ORD</td><td style="color:blue">AC</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="promedio-box"><span>PROMEDIO DEL CICLO: 8.27</span></div>
-        </div>
-      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="portlet light bordered">
+            <div class="portlet-title">
+              <div class="caption">
+                <i class="far fa-user" style="color: #796699;"></i>
+                <span class="caption-subject sbold uppercase" style="color: #796699;">BOLETA</span>
+              </div>
+            </div>
+            <div class="portlet-body">
+              <label for="cicloSelect" class="boleta-label">SELECCIONA UN CICLO ESCOLAR:</label>
+              <select id="cicloSelect" class="boleta-select">
+                <option value="">Seleccionar una opción...</option>
+                <option value="2026-SEM-ENE/JUN">2026-SEM-ENE/JUN</option>
+                <option value="2025-SEM-AGO/DIC">2025-SEM-AGO/DIC</option>
+                <option value="2025-SEM-ENE/JUN">2025-SEM-ENE/JUN</option>
+                <option value="2024-SEM-AGO/DIC">2024-SEM-AGO/DIC</option>
+              </select>
 
-      <!-- CICLO 2025-SEM-AGO/DIC -->
-      <div class="ciclo-header">Ciclo Escolar: 2025-SEM-AGO/DIC</div>
-      <div class="portlet light bordered">
-        <div class="portlet-body">
-          <div class="table-scrollable">
-            <table class="table table-hover table-light">
-              <thead><tr><th>Clave</th><th>Nombre de la materia</th><th>Calificación</th><th>Tipo Examen</th><th>Observaciones</th></tr></thead>
-              <tbody>
-                <tr class="hoverTable"><td>LEE312</td><td>PROPEDEUTICA DE LA SALUD</td><td>7.0</td><td>EXT</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE313</td><td>FARMACOLOGIA I</td><td>9.5</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE314</td><td>CARIOLOGIA</td><td>7.2</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE315</td><td>ANATOMIA DE CABEZA Y CUELLO</td><td>7.1</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE316</td><td>CIENCIA DE LOS MATERIALES ESTOMATOLOGICOS I</td><td>8.5</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE317</td><td>IMAGENOLOGIA EN ESTOMATOLOGIA I</td><td>7.5</td><td>ORD</td><td style="color:blue">AC</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="promedio-box"><span>PROMEDIO DEL CICLO: 7.80</span></div>
-        </div>
-      </div>
+              <button type="button" class="btn-consultar-boleta" onclick="consultarBoleta()">Consultar boleta</button>
 
-      <!-- CICLO 2025-SEM-ENE/JUN -->
-      <div class="ciclo-header">Ciclo Escolar: 2025-SEM-ENE/JUN</div>
-      <div class="portlet light bordered">
-        <div class="portlet-body">
-          <div class="table-scrollable">
-            <table class="table table-hover table-light">
-              <thead><tr><th>Clave</th><th>Nombre de la materia</th><th>Calificación</th><th>Tipo Examen</th><th>Observaciones</th></tr></thead>
-              <tbody>
-                <tr class="hoverTable"><td>CD-24</td><td>CULTURA DIGITAL</td><td>8.2</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>IPP-24</td><td>IDENTIDADES PERSONAL Y PROFESIONAL</td><td>8.5</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE214</td><td>MICROBIOLOGIA</td><td>10.0</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE215</td><td>ANATOMIA II</td><td>9.3</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE216</td><td>FISIOLOGIA II</td><td>7.8</td><td>EXT</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE217</td><td>ANATOMIA DENTAL II</td><td>8.5</td><td>EXT</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEP213</td><td>BIOQUIMICA</td><td>8.5</td><td>ORD</td><td style="color:blue">AC</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="promedio-box"><span>PROMEDIO DEL CICLO: 8.69</span></div>
-        </div>
-      </div>
+              <div class="table-scrollable">
+                <table class="table table-hover table-light tabla-boleta">
+                  <thead>
+                    <tr>
+                      <th>Clave</th>
+                      <th>Nombre de la materia</th>
+                      <th>Calificación</th>
+                      <th>Tipo Examen</th>
+                      <th>Observaciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="boletaBody">
+                    <!-- Se llena al presionar Consultar boleta -->
+                  </tbody>
+                </table>
+              </div>
 
-      <!-- CICLO 2024-SEM-AGO/DIC -->
-      <div class="ciclo-header">Ciclo Escolar: 2024-SEM-AGO/DIC</div>
-      <div class="portlet light bordered">
-        <div class="portlet-body">
-          <div class="table-scrollable">
-            <table class="table table-hover table-light">
-              <thead><tr><th>Clave</th><th>Nombre de la materia</th><th>Calificación</th><th>Tipo Examen</th><th>Observaciones</th></tr></thead>
-              <tbody>
-                <tr class="hoverTable"><td>CD-24</td><td>CULTURA DIGITAL</td><td>8.2</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>I101</td><td>INGLES I</td><td>10.0</td><td>EQUIV</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>IPP-24</td><td>IDENTIDADES PERSONAL Y PROFESIONAL</td><td>8.5</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE103</td><td>ANATOMIA DENTAL I</td><td>9.6</td><td>ORD</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE104</td><td>INTRODUCCION A LA ESTOMATOLOGIA</td><td>9.8</td><td>EXT</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE105</td><td>ANATOMIA I</td><td>7.7</td><td>EXT</td><td style="color:blue">AC</td></tr>
-                <tr class="hoverTable"><td>LEE106</td><td>FISIOLOGIA I</td><td>8.9</td><td>ORD</td><td style="color:blue">AC</td></tr>
-              </tbody>
-            </table>
+              <div class="promedio-boleta">
+                <strong>PROMEDIO:</strong> <span id="promedioValor">0,00</span>
+              </div>
+            </div>
           </div>
-          <div class="promedio-box"><span>PROMEDIO DEL CICLO: 8.96</span></div>
         </div>
       </div>
 
     </div>
   </div>
-  <!-- FIN CONTENIDO BOLETAS -->
+  <!-- FIN CONTENIDO BOLETA -->
 </div>
 
 <script>
+    const boletasData = {
+        "2026-SEM-ENE/JUN": {
+            promedio: "8,27",
+            materias: [
+                { clave: "ERS-24", nombre: "ECOLOGIZACION Y RESPONSABILIDAD SOCIAL", cal: "7.76", tipo: "ORD", obs: "AC" },
+                { clave: "IIG-24", nombre: "INTERCULTURALIDADES, INCLUSION Y GENERO", cal: "7.0", tipo: "ORD", obs: "AC" },
+                { clave: "LEE411", nombre: "INMUNOLOGIA", cal: "8.73", tipo: "ORD", obs: "AC" },
+                { clave: "LEE413", nombre: "ANESTESIA EN ESTOMATOLOGIA", cal: "8.05", tipo: "ORD", obs: "AC" },
+                { clave: "LEE414", nombre: "FUNDAMENTOS DE MINIMA INTERVENCION", cal: "8.70", tipo: "ORD", obs: "AC" },
+                { clave: "LEE415", nombre: "OCLUSION", cal: "8.2", tipo: "EXT", obs: "AC" },
+                { clave: "LEE416", nombre: "CIENCIA DE LOS MATERIALES ESTOMATOLOGICOS II", cal: "8.75", tipo: "ORD", obs: "AC" },
+                { clave: "LEE417", nombre: "IMAGENOLOGIA EN ESTOMATOLOGIA II", cal: "9.0", tipo: "ORD", obs: "AC" }
+            ]
+        },
+        "2025-SEM-AGO/DIC": {
+            promedio: "7,80",
+            materias: [
+                { clave: "LEE312", nombre: "PROPEDEUTICA DE LA SALUD", cal: "7.0", tipo: "EXT", obs: "AC" },
+                { clave: "LEE313", nombre: "FARMACOLOGIA I", cal: "9.5", tipo: "ORD", obs: "AC" },
+                { clave: "LEE314", nombre: "CARIOLOGIA", cal: "7.2", tipo: "ORD", obs: "AC" },
+                { clave: "LEE315", nombre: "ANATOMIA DE CABEZA Y CUELLO", cal: "7.1", tipo: "ORD", obs: "AC" },
+                { clave: "LEE316", nombre: "CIENCIA DE LOS MATERIALES ESTOMATOLOGICOS I", cal: "8.5", tipo: "ORD", obs: "AC" },
+                { clave: "LEE317", nombre: "IMAGENOLOGIA EN ESTOMATOLOGIA I", cal: "7.5", tipo: "ORD", obs: "AC" }
+            ]
+        },
+        "2025-SEM-ENE/JUN": {
+            promedio: "8,69",
+            materias: [
+                { clave: "CD-24", nombre: "CULTURA DIGITAL", cal: "8.2", tipo: "ORD", obs: "AC" },
+                { clave: "IPP-24", nombre: "IDENTIDADES PERSONAL Y PROFESIONAL", cal: "8.5", tipo: "ORD", obs: "AC" },
+                { clave: "LEE214", nombre: "MICROBIOLOGIA", cal: "10.0", tipo: "ORD", obs: "AC" },
+                { clave: "LEE215", nombre: "ANATOMIA II", cal: "9.3", tipo: "ORD", obs: "AC" },
+                { clave: "LEE216", nombre: "FISIOLOGIA II", cal: "7.8", tipo: "EXT", obs: "AC" },
+                { clave: "LEE217", nombre: "ANATOMIA DENTAL II", cal: "8.5", tipo: "EXT", obs: "AC" },
+                { clave: "LEP213", nombre: "BIOQUIMICA", cal: "8.5", tipo: "ORD", obs: "AC" }
+            ]
+        },
+        "2024-SEM-AGO/DIC": {
+            promedio: "8,96",
+            materias: [
+                { clave: "CD-24", nombre: "CULTURA DIGITAL", cal: "8.2", tipo: "ORD", obs: "AC" },
+                { clave: "I101", nombre: "INGLES I", cal: "10.0", tipo: "EQUIV", obs: "AC" },
+                { clave: "IPP-24", nombre: "IDENTIDADES PERSONAL Y PROFESIONAL", cal: "8.5", tipo: "ORD", obs: "AC" },
+                { clave: "LEE103", nombre: "ANATOMIA DENTAL I", cal: "9.6", tipo: "ORD", obs: "AC" },
+                { clave: "LEE104", nombre: "INTRODUCCION A LA ESTOMATOLOGIA", cal: "9.8", tipo: "EXT", obs: "AC" },
+                { clave: "LEE105", nombre: "ANATOMIA I", cal: "7.7", tipo: "EXT", obs: "AC" },
+                { clave: "LEE106", nombre: "FISIOLOGIA I", cal: "8.9", tipo: "ORD", obs: "AC" }
+            ]
+        }
+    };
+
+    function consultarBoleta() {
+        const ciclo = document.getElementById("cicloSelect").value;
+        const tbody = document.getElementById("boletaBody");
+        const promedioEl = document.getElementById("promedioValor");
+
+        tbody.innerHTML = "";
+
+        if (!ciclo || !boletasData[ciclo]) {
+            promedioEl.textContent = "0,00";
+            return;
+        }
+
+        const datos = boletasData[ciclo];
+        datos.materias.forEach(m => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${m.clave}</td>
+                <td style="color: chocolate;">${m.nombre}</td>
+                <td>${m.cal}</td>
+                <td>${m.tipo}</td>
+                <td style="color: blue;">${m.obs}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        promedioEl.textContent = datos.promedio;
+    }
+
     $(document).ready(function () {
         $('.dropdown-toggle').dropdown();
 

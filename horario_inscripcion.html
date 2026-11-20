@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" ng-app="nuevoSega">
+<html lang="es" ng-app="nuevoSega" class="ng-scope">
 <head>
   <title>SEGA</title>
   <meta charset="utf-8">
@@ -12,35 +12,35 @@
   <meta name="theme-color" content="#796699">
   <link rel="apple-touch-icon" href="https://sega.uach.mx/assets/favicon-c16bfa3110b0ecbe5c7e9d6e254ddcaa0f3f1898005f0ac17ab90c1aa40f5472.png">
 
-  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/application-ece7ac12c107ffb6f34f277e0388426526a1129a59d002da078f1805f904106d.css" />
+  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/application-ece7ac12c107ffb6f34f277e0388426526a1129a59d002da078f1805f904106d.css">
   <script src="https://sega.uach.mx/assets/application-d0e9eb48f7d65f7e30d4f553d2d72995e43aeb042df8f076105533eb9f0e86fe.js"></script>
-  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/dhtmlxscheduler-b508c591fd4f9916cbcf34ad1e1add4db5d1b7196562d5e04d4659c8113fc643.css" data-turbolinks-track="true" />
+  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/dhtmlxscheduler-b508c591fd4f9916cbcf34ad1e1add4db5d1b7196562d5e04d4659c8113fc643.css" data-turbolinks-track="true">
   <script src="https://sega.uach.mx/assets/dhtmlxscheduler-dce4cf0db9c1f25cd8f3635b7ba1c0ee19e10e85a749bdbc3a78ba197a761f66.js" data-turbolinks-track="true"></script>
 
-  <meta name="csrf-param" content="authenticity_token" />
-  <meta name="csrf-token" content="ohLi6CjZtVt3HHVeniz40MaBGNzrENhgbMwj+65AFBG9Z4h1JsoUYJUymdM3uAUz9E6Dk9QIEP8hbcEeYjAHSg==" />
-  <link rel="shortcut icon" type="image/x-icon" href="https://sega.uach.mx/assets/favicon-c16bfa3110b0ecbe5c7e9d6e254ddcaa0f3f1898005f0ac17ab90c1aa40f5472.png" />
+  <meta name="csrf-param" content="authenticity_token">
+  <meta name="csrf-token" content="ohLi6CjZtVt3HHVeniz40MaBGNzrENhgbMwj+65AFBG9Z4h1JsoUYJUymdM3uAUz9E6Dk9QIEP8hbcEeYjAHSg==">
+  <link rel="shortcut icon" type="image/x-icon" href="https://sega.uach.mx/assets/favicon-c16bfa3110b0ecbe5c7e9d6e254ddcaa0f3f1898005f0ac17ab90c1aa40f5472.png">
 
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
   <script src="https://unpkg.com/popper.js@1"></script>
   <script src="https://unpkg.com/tippy.js@5"></script>
-  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/inscripciones/preinscripcion-dd01d44b453a46d2413f97b17944ccf6352dbbc75897074685da8bfbdd903c71.css" />
+  <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/inscripciones/preinscripcion-dd01d44b453a46d2413f97b17944ccf6352dbbc75897074685da8bfbdd903c71.css">
 </head>
 
-<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo" ng-controller="layoutController">
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo ng-scope" ng-controller="layoutController">
 
 <div id="Loader">
-  <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" class="img-responsive"/>
+  <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" class="img-responsive">
 </div>
-<div id="LoaderAllPages">
-  <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" class="img-responsive"/>
+<div id="LoaderAllPages" style="display: none;">
+  <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" class="img-responsive">
 </div>
 
 <div class="page-header navbar navbar-fixed-top">
   <div class="page-header-inner">
     <div class="page-logo">
-      <a href="index.html" onclick="window.location.href='index.html'; return false;"><img class="logo-default" src="https://sega.uach.mx/assets/logo-uach-0dd6a98220ea3bdd801c171fa0685d37288eff4ab858a0917f7110474ffdd7d3.svg" /></a>
+      <a href="index.html" onclick="window.location.href='index.html'; return false;"><img class="logo-default" src="https://sega.uach.mx/assets/logo-uach-0dd6a98220ea3bdd801c171fa0685d37288eff4ab858a0917f7110474ffdd7d3.svg"></a>
       <div class="menu-toggler sidebar-toggler"></div>
     </div>
     <a aria-controls="sidebar" aria-expanded="false" class="menu-toggler responsive-toggler hidden-xs hidden-sm" data-target="#sidebar" data-toggle="collapse" href="javascript:;"></a>
@@ -65,10 +65,10 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-default">
               <li>
-                <img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg" />
+                <img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg">
                 <a href="http://soporte.uach.mx" target="_blank"><i class="fa fa-question"></i> Soporte UACH</a>
                 <a ng-click="translatePage('en')" ng-hide="currentLanguage === 'en'"><i class="fa fa-globe"></i>Traducir</a>
-                <a ng-click="translatePage('es')" ng-show="currentLanguage === 'en'"><i class="fa fa-globe"></i>Traducir</a>
+                <a ng-click="translatePage('es')" ng-show="currentLanguage === 'en'" class="ng-hide"><i class="fa fa-globe"></i>Traducir</a>
               </li>
               <li id="logout"><a data-method="get" href="login.html" onclick="window.location.href='login.html'; return false;">
                   <i class="fa fa-times" aria-hidden="true"></i> Salir
@@ -89,7 +89,7 @@
     </ul>
     <div class="content">
       <nav>
-        <input type="checkbox" id="hamburger1"/>
+        <input type="checkbox" id="hamburger1">
         <label for="hamburger1"></label>
           <ul class="nav-links" data-auto-scroll="true" data-keep-expanded="true" data-slide-speed="100">
             <li class="nav-item start active">
@@ -153,15 +153,15 @@
             <li class="nav-item start active"><a class="nav-link nav-toggle" href="https://campusvirtual.uach.mx/" target="_blank"><i aria-hidden="true" class="icon-screen-desktop"></i><span class="title">Campus Virtual</span> <span class="selected"></span><span class="arrow"></span></a></li>
             <li class="nav-item start"><a data-method="get" href="login.html" onclick="window.location.href='login.html'; return false;"><i class="fa fa-times" aria-hidden="true"></i> Salir</a></li>
             <li class="nav-item start active"><a class="nav-link nav-toggle" href="#"><span class="icon fa fa-user-graduate"></span><span class="title">Tutor: JOSE ALBERTO PEÑA FLORES PORTILLO</span><span class="selected"></span></a></li>
-            <li class="nav-item start" onclick="window.open('http://soporte.uach.mx/', '_blank')"><a href="http://soporte.uach.mx/" class="nav-link nav-toggle" target="_blank"><img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg" /></a></li>
+            <li class="nav-item start" onclick="window.open('http://soporte.uach.mx/', '_blank')"><a href="http://soporte.uach.mx/" class="nav-link nav-toggle" target="_blank"><img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg"></a></li>
           </ul>
       </nav>
     </div>
   </div>
-  </div>
+</div>
 
 <div class="clearfix"></div>
-<div class="page-container" style="margin-top: 10px" >
+<div class="page-container" style="margin-top: 10px">
   
   <div class="page-sidebar-wrapper">
     <div class="container">
@@ -216,12 +216,12 @@
           <li class="nav-item start active"><a class="nav-link nav-toggle" href="reservaciones.html" onclick="window.location.href='reservaciones.html'; return false;"> <i class="fa fa-calendar"></i><span class="title">Reservaciones Curso: Primeros Auxilios</span> <span class="selected"></span><span class="arrow"></span></a></li>
           <li class="nav-item start active"><a class="nav-link nav-toggle" href="https://campusvirtual.uach.mx/" target="_blank"><i class="icon-screen-desktop"></i><span class="title">Campus Virtual</span></a></li>
           <li class="nav-item start active"><a class="nav-link nav-toggle" href="#"><span class="icon fa fa-user-graduate"></span><span class="title">Tutor: JOSE ALBERTO PEÑA FLORES PORTILLO</span><span class="selected"></span></a></li>
-          <li class="nav-item start active"><a href="http://soporte.uach.mx/" class="nav-link nav-toggle" target="_blank"><img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg" /></a></li>
+          <li class="nav-item start active"><a href="http://soporte.uach.mx/" class="nav-link nav-toggle" target="_blank"><img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg"></a></li>
         </ul>
     </div>
   </div>
   <div class="page-content-wrapper">
-    <div class="page-content" ng-controller="inscripciones_controller">
+    <div class="page-content ng-scope" ng-controller="inscripciones_controller" style="min-height: 308px;">
       <div class="page-head">
         <div class="col-md-12">
           <div class="portlet light bordered">
@@ -247,22 +247,28 @@
                     </thead>
                     <tbody>
                       <tr tabindex="1">
-                        <td class=" text-center">2026-SEM-ENE/JUN</td>
-                        <td class=" text-center">21 Ene 2026</td>
-                        <td class=" text-center" >17:00 Hrs.</td>
-                        <td class=" text-center" >19:00 Hrs.</td>
+                        <td class="text-center">2026-SEM-AGO/DIC</td>
+                        <td class="text-center">31 Jul 2026</td>
+                        <td class="text-center">12:00 Hrs.</td>
+                        <td class="text-center">16:00 Hrs.</td>
                       </tr>
                       <tr tabindex="1">
-                        <td class=" text-center">2025-SEM-AGO/DIC</td>
-                        <td class=" text-center">05 Ago 2025</td>
-                        <td class=" text-center" >17:00 Hrs.</td>
-                        <td class=" text-center" >19:00 Hrs.</td>
+                        <td class="text-center">2026-SEM-ENE/JUN</td>
+                        <td class="text-center">21 Ene 2026</td>
+                        <td class="text-center">17:00 Hrs.</td>
+                        <td class="text-center">19:00 Hrs.</td>
                       </tr>
                       <tr tabindex="1">
-                        <td class=" text-center">2025-SEM-ENE/JUN</td>
-                        <td class=" text-center">22 Ene 2025</td>
-                        <td class=" text-center" >16:00 Hrs.</td>
-                        <td class=" text-center" >18:00 Hrs.</td>
+                        <td class="text-center">2025-SEM-AGO/DIC</td>
+                        <td class="text-center">05 Ago 2025</td>
+                        <td class="text-center">17:00 Hrs.</td>
+                        <td class="text-center">19:00 Hrs.</td>
+                      </tr>
+                      <tr tabindex="1">
+                        <td class="text-center">2025-SEM-ENE/JUN</td>
+                        <td class="text-center">22 Ene 2025</td>
+                        <td class="text-center">16:00 Hrs.</td>
+                        <td class="text-center">18:00 Hrs.</td>
                       </tr>
                     </tbody>
                   </table>
@@ -273,7 +279,7 @@
       </div>
     </div>
   </div>
-  </div>
+</div>
 
 <script>
     $(document).ready(function () {
@@ -297,7 +303,7 @@
     });
 </script>
 
-<style type=text/css>
+<style type="text/css">
     .page-sidebar-menu.page-sidebar-menu-hover-submenu li:focus > .sub-menu {
         display: inline-block !important;
     }
@@ -311,5 +317,6 @@
     <i class="icon-arrow-up"></i>
   </div>
 </div>
+
 </body>
 </html>

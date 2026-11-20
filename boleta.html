@@ -1,16 +1,26 @@
 <!DOCTYPE html>
+<!-- ==================== Interfaz Admin-UACH 2019 v1.1 ==================== -->
 <html lang="es" ng-app="nuevoSega">
 <head>
   <title>SEGA</title>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+  <!-- ================= AJUSTES PARA MODO APP ================= -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#796699">
+  <link rel="apple-touch-icon" href="https://sega.uach.mx/assets/favicon-c16bfa3110b0ecbe5c7e9d6e254ddcaa0f3f1898005f0ac17ab90c1aa40f5472.png">
+
   <link rel="stylesheet" media="all" href="https://sega.uach.mx/assets/application-ece7ac12c107ffb6f34f277e0388426526a1129a59d002da078f1805f904106d.css" />
   <script src="https://sega.uach.mx/assets/application-d0e9eb48f7d65f7e30d4f553d2d72995e43aeb042df8f076105533eb9f0e86fe.js"></script>
-  
+
   <link rel="shortcut icon" type="image/x-icon" href="https://sega.uach.mx/assets/favicon-c16bfa3110b0ecbe5c7e9d6e254ddcaa0f3f1898005f0ac17ab90c1aa40f5472.png" />
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
-  
+
   <style>
       .table thead tr th { background-color: #796699 !important; color: white !important; text-align: center; vertical-align: middle; border: none; }
       .hoverTable td { text-align: center; vertical-align: middle; }
@@ -19,7 +29,7 @@
       .promedio-box span { font-weight: bold; color: #796699; font-size: 1.2em; }
   </style>
 </head>
-<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo" ng-controller="layoutController">
 
 <div class="page-header navbar navbar-fixed-top">
   <div class="page-header-inner">
@@ -27,27 +37,93 @@
       <a href="index.html" target="_self" onclick="window.location.href='index.html'; return false;"><img class="logo-default" src="https://sega.uach.mx/assets/logo-uach-0dd6a98220ea3bdd801c171fa0685d37288eff4ab858a0917f7110474ffdd7d3.svg" /></a>
       <div class="menu-toggler sidebar-toggler"></div>
     </div>
-    <div class="page-top">
+    <a aria-controls="sidebar" aria-expanded="false" class="menu-toggler responsive-toggler hidden-xs hidden-sm" data-target="#sidebar" data-toggle="collapse" href="javascript:;"></a>
+
+    <div class="page-actions">
+      <div class="btn-group">
+          <button type="button" class="btn purple-plum btn-sm botonHeaderPrimario" onclick="window.location.href='index.html'">
+            <i class="fas fa-angle-double-down"></i>
+            <span id="programaTopBar">PROGRAMA: LICENCIATURA EN ESTOMATOLOGIA </span>
+          </button>
+      </div>
+    </div>
+    <div class="page-top" id="topWeb">
       <div class="top-menu">
         <ul class="nav navbar-nav pull-right">
           <li class="dropdown dropdown-user dropdown-dark">
-            <a class="dropdown-toggle" data-toggle="dropdown">
+            <a class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-toggle="dropdown" href="javascript:;">
               <span class="username">RODRIGUEZ GERMAN OSCAR YRAM</span>
-              <i class="fa fa-angle-down"></i>
+              <span class="fa fa-chevron-down"></span>
             </a>
-            <ul class="dropdown-menu">
-              <li><a href="login.html">Salir</a></li>
+            <ul class="dropdown-menu dropdown-menu-default">
+              <li>
+                <img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg" />
+                <a href="http://soporte.uach.mx" target="_blank"><i class="fa fa-question"></i> Soporte UACH</a>
+              </li>
+              <li id="logout"><a data-method="get" href="login.html" target="_self" onclick="window.location.href='login.html'; return false;"><i class="fa fa-times" aria-hidden="true"></i> Salir</a></li>
             </ul>
           </li>
         </ul>
       </div>
     </div>
   </div>
+
+  <!-- INICIO MENU MOVIL -->
+  <div class="page-top" id="topMovil">
+    <ul class="nav navbar-nav pull-right">
+      <li class="dropdown dropdown-user dropdown-dark" style="z-index: 9999;">
+        <a class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-toggle="dropdown" href="javascript:;"><span class="username">RODRIGUEZ GERMAN OSCAR YRAM</span></a>
+      </li>
+    </ul>
+    <div class="content">
+      <nav>
+        <input type="checkbox" id="hamburger1"/>
+        <label for="hamburger1"></label>
+          <ul class="nav-links" data-auto-scroll="true" data-keep-expanded="true" data-slide-speed="100">
+            <li class="nav-item start active"><a class="nav-link nav-toggle" href="index.html" target="_self" onclick="window.location.href='index.html'; return false;"><i class="icon-home" aria-hidden="true"></i><span class="title">Inicio</span><span class="arrow"></span></a></li>
+            <li class="nav-item start">
+              <a class="nav-link active nav-toggle" href="javascript:;"><i class="fa fa-bookmark" aria-hidden="true"></i><span class="title">Consultas</span> <span class="selected"></span> <span class="arrow"></span></a>
+              <ul class="sub-menu" style="display: none;">
+                <li class="nav-item"><a class="nav-link nav-toggle" href="index.html" target="_self" onclick="window.location.href='index.html'; return false;"><i class="fas fa-id-badge"></i><span class="title">Programas Educativos</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="kardex.html" target="_self" onclick="window.location.href='kardex.html'; return false;"><i class="fas fa-book-reader"></i><span class="title">Kardex</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="horario.html" target="_self" onclick="window.location.href='horario.html'; return false;"><i class="fas fa-clock"></i><span class="title">Horario</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="calificaciones.html" target="_self" onclick="window.location.href='calificaciones.html'; return false;"><i class="fas fa-book-open"></i><span class="title">Calificaciones</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="faltas.html" target="_self" onclick="window.location.href='faltas.html'; return false;"><i class="fa fa-area-chart"></i><span class="title">Faltas</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="horario_evaluaciones.html" target="_self" onclick="window.location.href='horario_evaluaciones.html'; return false;"><i class="fas fa-comments"></i><span class="title">Horario de evaluaciones</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="materias_disponibles.html" target="_self" onclick="window.location.href='materias_disponibles.html'; return false;"><i class="fas fa-book"></i><span class="title">Materias Disponibles</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="materias_por_cursar.html" target="_self" onclick="window.location.href='materias_por_cursar.html'; return false;"><i class="fas fa-road"></i><span class="title">Materias por cursar</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="boleta.html" target="_self" onclick="window.location.href='boleta.html'; return false;"><i class="fas fa-file"></i><span class="title">Boleta</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="documentacion.html" target="_self" onclick="window.location.href='documentacion.html'; return false;"><i class="fas fa-file-invoice"></i><span class="title">Documentación</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item start">
+              <a class="nav-link nav-toggle" href="javascript:;"><i aria-hidden="true" class="fa fa-address-card"></i><span class="title">Inscripciones</span> <span class="selected"></span> <span class="arrow"></span></a>
+              <ul class="sub-menu" style="display: none;">
+                <li class="nav-item"><a class="nav-link nav-toggle" href="horario_inscripcion.html" target="_self" onclick="window.location.href='horario_inscripcion.html'; return false;"><i class="fas fa-calendar-alt"></i><span class="title">Horario de inscripción</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="preinscripcion.html" target="_self" onclick="window.location.href='preinscripcion.html'; return false;"><i class="fa fa-cube"></i><span class="title">Preinscripción/Inscripción</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="demanda_materias.html" target="_self" onclick="window.location.href='demanda_materias.html'; return false;"><i class="fa fa-plus-square"></i><span class="title">Demanda de materias</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="altas_bajas.html" target="_self" onclick="window.location.href='altas_bajas.html'; return false;"><i class="fa fa-bar-chart"></i><span class="title">Altas-Bajas de Materias</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="baja_temporal.html" target="_self" onclick="window.location.href='baja_temporal.html'; return false;"><i class="fa fa-user-minus"></i><span class="title">Baja Temporal</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="doble_titulacion.html" target="_self" onclick="window.location.href='doble_titulacion.html'; return false;"><i class="fa fa-graduation-cap"></i><span class="title">Doble Titulación</span></a></li>
+                <li class="nav-item"><a class="nav-link nav-toggle" href="cursos_especiales.html" target="_self" onclick="window.location.href='cursos_especiales.html'; return false;"><i class="fa fa-book-open"></i><span class="title">Cursos Especiales</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item start active"><a class="nav-link nav-toggle" href="https://pagosalumnos.uach.mx/" target="_blank"><i aria-hidden="true" class="fa fa-credit-card"></i><span class="title">Pagos Alumnos</span></a></li>
+            <li class="nav-item start active"><a class="nav-link nav-toggle" href="papeleria_impresion.html" target="_self" onclick="window.location.href='papeleria_impresion.html'; return false;"><i class="fa fa-file-alt"></i><span class="title"> Papelería oficial (Emisión constancias)</span></a></li>
+            <li class="nav-item start active"><a class="nav-link nav-toggle" href="carnet.html" target="_self" onclick="window.location.href='carnet.html'; return false;"><i class="icon-home" aria-hidden="true"></i><span class="title">Carnet + Vida Universitaria</span></a></li>
+            <li class="nav-item start active"><a class="nav-link nav-toggle" href="reservaciones.html" target="_self" onclick="window.location.href='reservaciones.html'; return false;"><i class="fa fa-calendar"></i><span class="title"> Reservaciones Curso: Primeros Auxilios</span></a></li>
+            <li class="nav-item start"><a data-method="get" href="login.html" target="_self" onclick="window.location.href='login.html'; return false;"><i class="fa fa-times" aria-hidden="true"></i> Salir</a></li>
+          </ul>
+      </nav>
+    </div>
+  </div>
+  <!-- FIN MENU MOVIL -->
 </div>
 
 <div class="clearfix"></div>
 
 <div class="page-container" style="margin-top: 10px">
+  <!-- INICIO MENU SIDEBAR ESCRITORIO -->
   <div class="page-sidebar-wrapper">
     <div class="page-sidebar navbar-collapse collapse" id="sidebar">
         <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu" data-auto-scroll="true" data-keep-expanded="true" data-slide-speed="100">
@@ -63,16 +139,16 @@
               <span class="title">Consultas</span> <span class="selected"></span> <span class="arrow"></span>
             </a>
             <ul class="sub-menu" style="display: none;">
-              <li class="nav-item"><a class="nav-link nav-toggle" href="index.html" target="_self" onclick="window.location.href='index.html'; return false;"><span class="title">Programas Educativos</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="kardex.html" target="_self" onclick="window.location.href='kardex.html'; return false;"><span class="title">Kardex</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="horario.html" target="_self" onclick="window.location.href='horario.html'; return false;"><span class="title">Horario</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="calificaciones.html" target="_self" onclick="window.location.href='calificaciones.html'; return false;"><span class="title">Calificaciones</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="faltas.html" target="_self" onclick="window.location.href='faltas.html'; return false;"><span class="title">Faltas</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="horario_evaluaciones.html" target="_self" onclick="window.location.href='horario_evaluaciones.html'; return false;"><span class="title">Horario de evaluaciones</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="materias_disponibles.html" target="_self" onclick="window.location.href='materias_disponibles.html'; return false;"><span class="title">Materias Disponibles</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="materias_por_cursar.html" target="_self" onclick="window.location.href='materias_por_cursar.html'; return false;"><span class="title">Materias por cursar</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="boleta.html" target="_self" onclick="window.location.href='boleta.html'; return false;"><span class="title">Boleta</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="documentacion.html" target="_self" onclick="window.location.href='documentacion.html'; return false;"><span class="title">Documentación</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="index.html" target="_self" onclick="window.location.href='index.html'; return false;"><i class="fas fa-id-badge"></i><span class="title">Programas Educativos</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="kardex.html" target="_self" onclick="window.location.href='kardex.html'; return false;"><i class="fas fa-book-reader"></i><span class="title">Kardex</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="horario.html" target="_self" onclick="window.location.href='horario.html'; return false;"><i class="fas fa-clock"></i><span class="title">Horario</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="calificaciones.html" target="_self" onclick="window.location.href='calificaciones.html'; return false;"><i class="fas fa-book-open"></i><span class="title">Calificaciones</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="faltas.html" target="_self" onclick="window.location.href='faltas.html'; return false;"><i class="fa fa-area-chart"></i><span class="title">Faltas</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="horario_evaluaciones.html" target="_self" onclick="window.location.href='horario_evaluaciones.html'; return false;"><i class="fas fa-comments"></i><span class="title">Horario de evaluaciones</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="materias_disponibles.html" target="_self" onclick="window.location.href='materias_disponibles.html'; return false;"><i class="fas fa-book"></i><span class="title">Materias Disponibles</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="materias_por_cursar.html" target="_self" onclick="window.location.href='materias_por_cursar.html'; return false;"><i class="fas fa-road"></i><span class="title">Materias por cursar</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="boleta.html" target="_self" onclick="window.location.href='boleta.html'; return false;"><i class="fas fa-file"></i><span class="title">Boleta</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="documentacion.html" target="_self" onclick="window.location.href='documentacion.html'; return false;"><i class="fas fa-file-invoice"></i><span class="title">Documentación</span></a></li>
             </ul>
           </li>
 
@@ -80,57 +156,60 @@
             <a class="nav-link nav-toggle" href="javascript:;"><i aria-hidden="true" class="fa fa-address-card"></i>
               <span class="title">Inscripciones</span> <span class="selected"></span> <span class="arrow"></span></a>
             <ul class="sub-menu" style="display: none;">
-              <li class="nav-item"><a class="nav-link nav-toggle" href="horario_inscripcion.html" target="_self" onclick="window.location.href='horario_inscripcion.html'; return false;"><span class="title">Horario de inscripción</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="preinscripcion.html" target="_self" onclick="window.location.href='preinscripcion.html'; return false;"><span class="title">Preinscripción/Inscripción</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="demanda_materias.html" target="_self" onclick="window.location.href='demanda_materias.html'; return false;"><span class="title">Demanda de Materias</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="altas_bajas.html" target="_self" onclick="window.location.href='altas_bajas.html'; return false;"><span class="title">Altas-Bajas de Materias</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="baja_temporal.html" target="_self" onclick="window.location.href='baja_temporal.html'; return false;"><span class="title">Baja Temporal</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="doble_titulacion.html" target="_self" onclick="window.location.href='doble_titulacion.html'; return false;"><span class="title">Doble Titulación</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="cursos_especiales.html" target="_self" onclick="window.location.href='cursos_especiales.html'; return false;"><span class="title">Cursos Especiales</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="horario_inscripcion.html" target="_self" onclick="window.location.href='horario_inscripcion.html'; return false;"><i class="fas fa-calendar-alt"></i><span class="title">Horario de inscripción</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="preinscripcion.html" target="_self" onclick="window.location.href='preinscripcion.html'; return false;"><i class="fa fa-cube"></i><span class="title">Preinscripción/Inscripción</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="demanda_materias.html" target="_self" onclick="window.location.href='demanda_materias.html'; return false;"><i class="fa fa-plus-square"></i><span class="title">Demanda de Materias</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="altas_bajas.html" target="_self" onclick="window.location.href='altas_bajas.html'; return false;"><i class="fa fa-bar-chart"></i><span class="title">Altas-Bajas de Materias</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="baja_temporal.html" target="_self" onclick="window.location.href='baja_temporal.html'; return false;"><i class="fa fa-user-minus"></i><span class="title">Baja Temporal</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="doble_titulacion.html" target="_self" onclick="window.location.href='doble_titulacion.html'; return false;"><i class="fa fa-graduation-cap"></i><span class="title">Doble Titulación</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="cursos_especiales.html" target="_self" onclick="window.location.href='cursos_especiales.html'; return false;"><i class="fa fa-book-open"></i><span class="title">Cursos Especiales</span></a></li>
             </ul>
           </li>
 
-          <li class="nav-item start active">
-            <a class="nav-link nav-toggle" href="papeleria_impresion.html" target="_self" onclick="window.location.href='papeleria_impresion.html'; return false;"><i aria-hidden="true" class="fa fa-file-alt"></i>
-              <span class="title">Papelería oficial</span> <span class="selected"></span> <span class="arrow"></span></a>
-          </li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="https://pagosalumnos.uach.mx/" target="_blank"><i aria-hidden="true" class="fa fa-credit-card"></i><span class="title">Pagos Alumnos</span></a></li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="papeleria_impresion.html" target="_self" onclick="window.location.href='papeleria_impresion.html'; return false;"><i aria-hidden="true" class="fa fa-file-alt"></i><span class="title">Papelería oficial (Emisión constancias)</span></a></li>
 
           <li class="nav-item start active">
             <a class="nav-link nav-toggle" href="javascript:;"><span class="icon fa fa-graduation-cap"></span><span class="title">Titulaciones</span><span class="selected"></span></a>
             <ul class="sub-menu" style="display: none;">
-              <li class="nav-item"><a class="nav-link nav-toggle" href="solicitud_titulacion.html" target="_self" onclick="window.location.href='solicitud_titulacion.html'; return false;"><span class="title">Solicitud Titulación</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="estatus_titulacion.html" target="_self" onclick="window.location.href='estatus_titulacion.html'; return false;"><span class="title">Estatus Titulación</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="impresion_titulo.html" target="_self" onclick="window.location.href='impresion_titulo.html'; return false;"><span class="title">Impresión de Título</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="solicitud_titulacion.html" target="_self" onclick="window.location.href='solicitud_titulacion.html'; return false;"><i class="fa fa-file-alt"></i><span class="title">Solicitud Titulación</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="estatus_titulacion.html" target="_self" onclick="window.location.href='estatus_titulacion.html'; return false;"><i class="fa fa-cube"></i><span class="title">Estatus Titulación</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="impresion_titulo.html" target="_self" onclick="window.location.href='impresion_titulo.html'; return false;"><i class="fa fa-file-download"></i><span class="title">Impresión de Título</span></a></li>
             </ul>
           </li>
 
           <li class="nav-item start active">
-            <a class="nav-link nav-toggle" href="javascript:;"><span class="icon fa fa-info-circle"></span><span class="title">Tutorías y Evaluación</span><span class="selected"></span></a>
+            <a class="nav-link nav-toggle" href="javascript:;"><span class="icon fa fa-info-circle"></span><span class="title">Tutorías, Asesorías y Evaluación Docente</span><span class="selected"></span></a>
             <ul class="sub-menu" style="display: none;">
-              <li class="nav-item"><a class="nav-link nav-toggle" href="ficha_diagnostico.html" target="_self" onclick="window.location.href='ficha_diagnostico.html'; return false;"><span class="title">Ficha de Diagnóstico</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="encuesta_satisfaccion.html" target="_self" onclick="window.location.href='encuesta_satisfaccion.html'; return false;"><span class="title">Encuesta de Satisfacción</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="evaluacion_docentes.html" target="_self" onclick="window.location.href='evaluacion_docentes.html'; return false;"><span class="title">Evaluación Docente</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-toggle" href="asesorias_academicas.html" target="_self" onclick="window.location.href='asesorias_academicas.html'; return false;"><span class="title">Asesorías Académicas</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="ficha_diagnostico.html" target="_self" onclick="window.location.href='ficha_diagnostico.html'; return false;"><i class="fa fa-cube"></i><span class="title">Ficha de Diagnóstico</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="encuesta_satisfaccion.html" target="_self" onclick="window.location.href='encuesta_satisfaccion.html'; return false;"><i class="fa fa-file-download"></i><span class="title">Encuesta de Satisfacción</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="evaluacion_docentes.html" target="_self" onclick="window.location.href='evaluacion_docentes.html'; return false;"><i class="fa fa-address-book"></i><span class="title">Evaluación Docente</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-toggle" href="asesorias_academicas.html" target="_self" onclick="window.location.href='asesorias_academicas.html'; return false;"><i class="fa fa-chalkboard-teacher"></i><span class="title">Asesorías Académicas</span></a></li>
             </ul>
           </li>
 
-          <li class="nav-item start active">
-            <a class="nav-link nav-toggle" href="carnet.html" target="_self" onclick="window.location.href='carnet.html'; return false;"><i aria-hidden="true" class="fa fa-file-alt"></i><span class="title">Carnet + Vida Universitaria</span><span class="arrow"></span></a>
-          </li>
-          <li class="nav-item start active">
-            <a class="nav-link nav-toggle" href="reservaciones.html" target="_self" onclick="window.location.href='reservaciones.html'; return false;"><i class="fa fa-calendar"></i><span class="title"> Reservaciones Primeros Auxilios</span><span class="arrow"></span></a>
-          </li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="carnet.html" target="_self" onclick="window.location.href='carnet.html'; return false;"><i aria-hidden="true" class="fa fa-file-alt"></i><span class="title">Carnet + Vida Universitaria</span></a></li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="reservaciones.html" target="_self" onclick="window.location.href='reservaciones.html'; return false;"><i class="fa fa-calendar"></i><span class="title">Reservaciones Curso: Primeros Auxilios</span></a></li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="https://campusvirtual.uach.mx/" target="_blank"><i class="icon-screen-desktop"></i><span class="title">Campus Virtual</span></a></li>
+          <li class="nav-item start active"><a class="nav-link nav-toggle" href="#"><span class="icon fa fa-user-graduate"></span><span class="title">Tutor: JOSE ALBERTO PEÑA FLORES PORTILLO</span></a></li>
+          <li class="nav-item start active"><a href="http://soporte.uach.mx/" class="nav-link nav-toggle" target="_blank"><img style="height:100%;width:100%;" src="https://sega.uach.mx/assets/soporte_banner-a5fec7d4dfaf41980f527a162fff53765404c1192e1e698deca7e175906cb833.jpg" /></a></li>
         </ul>
     </div>
   </div>
+  <!-- FIN MENU SIDEBAR ESCRITORIO -->
 
+  <!-- INICIO CONTENIDO BOLETAS -->
   <div class="page-content-wrapper">
-    <div class="page-content" style="min-height: 1603px;">
+    <div class="page-content" style="min-height: 558px;">
       <div class="page-head">
         <div class="dashboard-stat2 bordered">
           <div class="display">
             <div class="number">
+              <div class="icon">
+                <i class="fas fa-file font-yellow" aria-hidden="true"></i>
+              </div>
               <h3 class="font-purple-sharp"><span>BOLETAS</span></h3>
+              <small>Aquí puedes ver tus boletas de calificaciones por ciclo escolar - RODRIGUEZ GERMAN OSCAR YRAM</small>
             </div>
           </div>
           <div class="academic-info-card mt-30">
@@ -144,6 +223,30 @@
         </div>
       </div>
 
+      <!-- CICLO 2026-SEM-ENE/JUN -->
+      <div class="ciclo-header">Ciclo Escolar: 2026-SEM-ENE/JUN</div>
+      <div class="portlet light bordered">
+        <div class="portlet-body">
+          <div class="table-scrollable">
+            <table class="table table-hover table-light">
+              <thead><tr><th>Clave</th><th>Nombre de la materia</th><th>Calificación</th><th>Tipo Examen</th><th>Observaciones</th></tr></thead>
+              <tbody>
+                <tr class="hoverTable"><td>ERS-24</td><td>ECOLOGIZACION Y RESPONSABILIDAD SOCIAL</td><td>7.76</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>IIG-24</td><td>INTERCULTURALIDADES, INCLUSION Y GENERO</td><td>7.0</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE411</td><td>INMUNOLOGIA</td><td>8.73</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE413</td><td>ANESTESIA EN ESTOMATOLOGIA</td><td>8.05</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE414</td><td>FUNDAMENTOS DE MINIMA INTERVENCION</td><td>8.70</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE415</td><td>OCLUSION</td><td>8.2</td><td>EXT</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE416</td><td>CIENCIA DE LOS MATERIALES ESTOMATOLOGICOS II</td><td>8.75</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE417</td><td>IMAGENOLOGIA EN ESTOMATOLOGIA II</td><td>9.0</td><td>ORD</td><td style="color:blue">AC</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="promedio-box"><span>PROMEDIO DEL CICLO: 8.27</span></div>
+        </div>
+      </div>
+
+      <!-- CICLO 2025-SEM-AGO/DIC -->
       <div class="ciclo-header">Ciclo Escolar: 2025-SEM-AGO/DIC</div>
       <div class="portlet light bordered">
         <div class="portlet-body">
@@ -151,21 +254,20 @@
             <table class="table table-hover table-light">
               <thead><tr><th>Clave</th><th>Nombre de la materia</th><th>Calificación</th><th>Tipo Examen</th><th>Observaciones</th></tr></thead>
               <tbody>
-                <tr class="hoverTable"><td>LEE312</td><td>PROPEDEUTICA DE LA SALUD</td><td>7.0</td><td>EXT</td><td>AC</td></tr>
-                <tr class="hoverTable"><td>LEE313</td><td>FARMACOLOGIA I</td><td>9.5</td><td>ORD</td><td>AC</td></tr>
-                <tr class="hoverTable"><td>LEE314</td><td>CARIOLOGIA</td><td>7.2</td><td>ORD</td><td>AC</td></tr>
-                <tr class="hoverTable"><td>LEE315</td><td>ANATOMIA DE CABEZA Y CUELLO</td><td>7.1</td><td>ORD</td><td>AC</td></tr>
-                <tr class="hoverTable"><td>LEE316</td><td>CIENCIA DE LOS MATERIALES I</td><td>8.5</td><td>ORD</td><td>AC</td></tr>
-                <tr class="hoverTable"><td>LEE317</td><td>IMAGENOLOGIA EN ESTOMATOLOGIA I</td><td>7.5</td><td>ORD</td><td>AC</td></tr>
-                <tr class="hoverTable"><td>ERS-24</td><td>ECOLOGIZACION Y RESP. SOCIAL</td><td>0.0</td><td>ORD</td><td>NA</td></tr>
-                <tr class="hoverTable"><td>IIG-24</td><td>INTERCULTURALIDADES, INCLUSION Y GENERO</td><td>0.0</td><td>ORD</td><td>NA</td></tr>
+                <tr class="hoverTable"><td>LEE312</td><td>PROPEDEUTICA DE LA SALUD</td><td>7.0</td><td>EXT</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE313</td><td>FARMACOLOGIA I</td><td>9.5</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE314</td><td>CARIOLOGIA</td><td>7.2</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE315</td><td>ANATOMIA DE CABEZA Y CUELLO</td><td>7.1</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE316</td><td>CIENCIA DE LOS MATERIALES ESTOMATOLOGICOS I</td><td>8.5</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE317</td><td>IMAGENOLOGIA EN ESTOMATOLOGIA I</td><td>7.5</td><td>ORD</td><td style="color:blue">AC</td></tr>
               </tbody>
             </table>
           </div>
-          <div class="promedio-box"><span>PROMEDIO DEL CICLO: 5.85</span></div>
+          <div class="promedio-box"><span>PROMEDIO DEL CICLO: 7.80</span></div>
         </div>
       </div>
 
+      <!-- CICLO 2025-SEM-ENE/JUN -->
       <div class="ciclo-header">Ciclo Escolar: 2025-SEM-ENE/JUN</div>
       <div class="portlet light bordered">
         <div class="portlet-body">
@@ -173,32 +275,82 @@
             <table class="table table-hover table-light">
               <thead><tr><th>Clave</th><th>Nombre de la materia</th><th>Calificación</th><th>Tipo Examen</th><th>Observaciones</th></tr></thead>
               <tbody>
-                <tr class="hoverTable"><td>CD-24</td><td>CULTURA DIGITAL</td><td>8.0</td><td>ORD</td><td>AC</td></tr>
-                <tr class="hoverTable"><td>IPP-24</td><td>IDENTIDADES PERSONAL Y PROFESIONAL</td><td>8.5</td><td>ORD</td><td>AC</td></tr>
-                <tr class="hoverTable"><td>LEE214</td><td>MICROBIOLOGIA</td><td>10.0</td><td>ORD</td><td>AC</td></tr>
-                <tr class="hoverTable"><td>LEE215</td><td>ANATOMIA II</td><td>9.3</td><td>ORD</td><td>AC</td></tr>
-                <tr class="hoverTable"><td>LEE216</td><td>FISIOLOGIA II</td><td>9.0</td><td>ORD</td><td>AC</td></tr>
-                <tr class="hoverTable"><td>LEE217</td><td>ANATOMIA DENTAL II</td><td>8.5</td><td>ORD</td><td>AC</td></tr>
-                <tr class="hoverTable"><td>LEP213</td><td>BIOQUIMICA</td><td>8.5</td><td>ORD</td><td>AC</td></tr>
+                <tr class="hoverTable"><td>CD-24</td><td>CULTURA DIGITAL</td><td>8.2</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>IPP-24</td><td>IDENTIDADES PERSONAL Y PROFESIONAL</td><td>8.5</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE214</td><td>MICROBIOLOGIA</td><td>10.0</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE215</td><td>ANATOMIA II</td><td>9.3</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE216</td><td>FISIOLOGIA II</td><td>7.8</td><td>EXT</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE217</td><td>ANATOMIA DENTAL II</td><td>8.5</td><td>EXT</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEP213</td><td>BIOQUIMICA</td><td>8.5</td><td>ORD</td><td style="color:blue">AC</td></tr>
               </tbody>
             </table>
           </div>
-          <div class="promedio-box"><span>PROMEDIO DEL CICLO: 8.82</span></div>
+          <div class="promedio-box"><span>PROMEDIO DEL CICLO: 8.69</span></div>
+        </div>
+      </div>
+
+      <!-- CICLO 2024-SEM-AGO/DIC -->
+      <div class="ciclo-header">Ciclo Escolar: 2024-SEM-AGO/DIC</div>
+      <div class="portlet light bordered">
+        <div class="portlet-body">
+          <div class="table-scrollable">
+            <table class="table table-hover table-light">
+              <thead><tr><th>Clave</th><th>Nombre de la materia</th><th>Calificación</th><th>Tipo Examen</th><th>Observaciones</th></tr></thead>
+              <tbody>
+                <tr class="hoverTable"><td>CD-24</td><td>CULTURA DIGITAL</td><td>8.2</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>I101</td><td>INGLES I</td><td>10.0</td><td>EQUIV</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>IPP-24</td><td>IDENTIDADES PERSONAL Y PROFESIONAL</td><td>8.5</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE103</td><td>ANATOMIA DENTAL I</td><td>9.6</td><td>ORD</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE104</td><td>INTRODUCCION A LA ESTOMATOLOGIA</td><td>9.8</td><td>EXT</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE105</td><td>ANATOMIA I</td><td>7.7</td><td>EXT</td><td style="color:blue">AC</td></tr>
+                <tr class="hoverTable"><td>LEE106</td><td>FISIOLOGIA I</td><td>8.9</td><td>ORD</td><td style="color:blue">AC</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="promedio-box"><span>PROMEDIO DEL CICLO: 8.96</span></div>
         </div>
       </div>
 
     </div>
   </div>
+  <!-- FIN CONTENIDO BOLETAS -->
 </div>
 
 <script>
     $(document).ready(function () {
         $('.dropdown-toggle').dropdown();
-    });
-    $(".start").click(function () {
-        var z = $(this).children(".sub-menu");
-        $(z).toggle("slow");
+
+        // FIX PARA MENÚ EN MÓVIL
+        $(".nav-item > a.nav-toggle").on('click', function (e) {
+            var sub = $(this).next(".sub-menu");
+            if (sub.length > 0) {
+                e.preventDefault(); 
+                e.stopPropagation();
+                if (sub.is(":visible")) {
+                    sub.slideUp("fast"); 
+                    $(this).parent().removeClass("open");
+                } else {
+                    sub.slideDown("fast"); 
+                    $(this).parent().addClass("open");
+                }
+            }
+        });
     });
 </script>
+<style type="text/css">
+    .page-sidebar-menu.page-sidebar-menu-hover-submenu li:focus > .sub-menu {
+        display: inline-block !important;
+    }
+</style>
+
+<div class="page-footer">
+  <div class="page-footer-inner">
+    2026 © Powered by
+    <a href="www.uach.mx" target="_blank">Universidad Autónoma de Chihuahua</a>
+  </div>
+  <div class="scroll-to-top">
+    <i class="icon-arrow-up"></i>
+  </div>
+</div>
 </body>
 </html>
